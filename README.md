@@ -1,7 +1,7 @@
 # Package list
 
  - Date: https://github.com/malcommac/SwiftDate
- - Curl: Build in drop
+ - Curl: Build in Vapor
  - Cache: Vapor has a redis package, we can consider a cache package like we had, for easier use down the line
  - Queue: https://github.com/BrettRToomey/Jobs
  - Excel/Csv export: Missing!
