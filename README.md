@@ -7,8 +7,8 @@
  - Excel/Csv export: Missing!
  - Bugsnag: https://github.com/nodes-vapor/bugsnag
  - Meta: https://github.com/nodes-vapor/meta
- - Admin panel: In progress
- - Storage: Missing!
+ - Admin panel: https://github.com/nodes-vapor/admin-panel
+ - Storage: https://github.com/nodes-vapor/storage
  - Push UA: https://github.com/nodes-vapor/push-urban-airship
  - Translate: https://github.com/nodes-vapor/nstack
  - Log: https://github.com/SwiftyBeaver/SwiftyBeaver-Vapor
