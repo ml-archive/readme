@@ -51,3 +51,15 @@ http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_larg
 
 ### How to enable UTF8MB4 support on Vapor?
 
+ Go to:
+ 
+ ```
+Config/
+  - mysql.json
+    secrets/
+      - mysql.json
+```
+
+And replace
+
+`"encoding": "utf8"` by `"encoding": "utf8mb4"`
