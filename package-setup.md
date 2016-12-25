@@ -11,6 +11,8 @@ let package = Package(
        .Package(url: "https://github.com/vapor/vapor.git", majorVersion: 1),                      
     ]
 )
-
-
 ```
+
+Add your code in 
+
+`Sources/MyPackage/`
