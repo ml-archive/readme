@@ -1,7 +1,24 @@
 # How to build a package
 
-Package.swift file in the root
+## Automatically with Swift Package Manager (SPM)
+This is by far the easiest way to get setup. First, create a directory:
+```bash
+mkdir MyPackage
+cd MyPackage
 ```
+
+Now, use SPM to init your package:
+```bash
+swift package init --type library
+```
+
+All of your files will be generated automatically and you're now ready to setup [Travis and Codecov](#travis-and-codecov)
+
+## Manually
+
+### Package manifest
+Package.swift file in the root
+```swift
 import PackageDescription
 
 let package = Package(
@@ -13,16 +30,17 @@ let package = Package(
 )
 ```
 
-Add your code in 
-
+### Source
+Create and put your sources in the directory
 `Sources/MyPackage/`
 
-Add your tests in
+### Tests
 
-`Tests/`
+Create and put your tests in the directory
+`Tests/MyPackageTests/`
 
-Add a LinuxMain.swift in Tests, in here you manually have to add all the tests which should be executed in Linux
-```
+In order to support Linux, add `Tests/LinuxMain.swift` the following file with all of your `XCTestCase`s.
+```swift
 import XCTest
 @testable import MyPackageTests
 
@@ -32,9 +50,9 @@ XCTMain([
 
 ```
 
-Example of test
+#### Example of TestCase
 
-```
+```swift
 import XCTest
 @testable import NeededImport
 
@@ -47,20 +65,13 @@ class MyPackageTests: XCTestCase {
         XCTAssertEqual("abc", "abc")
     }
 }
-
-```
-Open your package in xcode 
-```
-vapor xcode -y
 ```
 
-Build and run tests 
-```
-cmd + u
-```
+## Travis and Codecov
+For `Travis` add the following file to your project root:
 
-.travis.yml file
-```
+### .travis.yml
+```yml
 os:
   - linux
   - osx
@@ -73,10 +84,19 @@ script:
   - eval "$(curl -sL https://swift.vapor.sh/codecov)"
 ```
 
-.codecov.yml
-```
+For `Codecov` add the following file to your project root:
+
+### .codecov.yml
+```yml
 coverage:
-ignore:
-        - "Whatever folder"
+  ignore:
+    - "Whatever folder"
 
 ```
+
+## XCode
+Generate an Xcode project:
+```bash
+vapor xcode -y
+```
+The hotkey to build and run unit tests is `cmd+u`.
