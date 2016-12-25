@@ -16,3 +16,58 @@ let package = Package(
 Add your code in 
 
 `Sources/MyPackage/`
+
+Add your tests in
+
+`Tests/`
+
+Add a LinuxMain.swift in Tests, in here you manually have to add all the tests which should be executed in Linux
+```
+import XCTest
+@testable import MyPackageTests
+
+XCTMain([
+    testCase(MyPackageTests.allTests)
+])
+
+```
+
+Example of test
+
+```
+import XCTest
+@testable import NeededImport
+
+class MyPackageTests: XCTestCase {
+    static var allTests = [
+        ("test", test)
+    ]
+    
+    func test() {
+        XCTAssertEqual("abc", "abc")
+    }
+}
+
+```
+
+.travis.yml file
+```
+os:
+  - linux
+  - osx
+language: generic
+sudo: required
+dist: trusty
+osx_image: xcode8
+script:
+  - eval "$(curl -sL https://swift.vapor.sh/ci)"
+  - eval "$(curl -sL https://swift.vapor.sh/codecov)"
+```
+
+.codecov.yml
+```
+coverage:
+ignore:
+        - "Whatever folder"
+
+```
