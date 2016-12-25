@@ -1,4 +1,4 @@
-### How to build a package
+# How to build a package
 
 Package.swift file in the root
 ```
@@ -48,6 +48,15 @@ class MyPackageTests: XCTestCase {
     }
 }
 
+```
+Open your package in xcode 
+```
+vapor xcode -y
+```
+
+Build and run tests 
+```
+cmd + u
 ```
 
 .travis.yml file
