@@ -8,5 +8,5 @@ App     38017 casper_r    4u  IPv4 0xb334c0f620b8c201      0t0  TCP *:http-alt (
 
 -> kill 38017
 ```
-### Retrieve ip
+### Retrieve client ip
 try request.peerAddress?.address()
