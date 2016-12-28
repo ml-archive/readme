@@ -1,6 +1,6 @@
 # Package list
 
- - Date: https://github.com/malcommac/SwiftDate
+ - Date: Use Foundation for now: https://github.com/malcommac/SwiftDate -> No linux support
  - Curl: Build in Vapor - Wait for Alamo Fire for a more advanced version
  - Cache: Vapor has a redis package, we can consider a cache package like we had, for easier use down the line
  - Queue: https://github.com/BrettRToomey/Jobs
