@@ -1,4 +1,4 @@
-1) Vapor new
+1) vapor new project name
 
 2) Set up git, add a repository on gitlab and push the initial code
 
