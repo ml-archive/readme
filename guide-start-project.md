@@ -32,3 +32,8 @@ Remove the "session" middleware in droplet.json and add this in main.swift
 ```swift
 drop.middleware.append(SessionsMiddleware(sessions: CacheSessions(cache: drop.cache)))
 ```
+
+5) clients.json change mozzilla with defaults
+```swift
+"certificates": "defaults"
+```
