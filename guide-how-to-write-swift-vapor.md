@@ -23,6 +23,7 @@ The intention of this document is to guide how we should write Swift/Vapor at No
 - [Xcode Warnings](#xcode-warnings)
 - [Outcommented Code](#outcommented-code)
 - [SwiftLint](#swiftlint)
+- [Miscellaneous](#miscellaneous)
 - [License](#license)
 
 
