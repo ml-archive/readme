@@ -1,0 +1,10 @@
+included:
+  - Sources
+function_body_length:
+  warning: 60
+variable_name:
+  min_length:
+    warning: 2
+line_length: 80
+disabled_rules:
+  - vertical_whitespace
