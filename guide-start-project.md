@@ -1,4 +1,4 @@
-1) vapor new project name
+1) `vapor new test --template=https://github.com/nodes-vapor/template`
 
 2) Set up git, add a repository on gitlab and push the initial code
 
@@ -33,12 +33,7 @@ Remove the "session" middleware in droplet.json and add this in main.swift
 drop.middleware.append(SessionsMiddleware(sessions: CacheSessions(cache: drop.cache)))
 ```
 
-5) clients.json change mozzilla with defaults
-```swift
-"certificates": "defaults"
-```
-
-6)
+5)
 Change chipher key & iv -> https://www.random.org/
 ```swift
 {
