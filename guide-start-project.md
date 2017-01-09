@@ -37,3 +37,19 @@ drop.middleware.append(SessionsMiddleware(sessions: CacheSessions(cache: drop.ca
 ```swift
 "certificates": "defaults"
 ```
+
+6)
+Change chipher key & iv -> https://www.random.org/
+```swift
+{
+    "hash": {
+        "method": "sha256",
+        "key": "password"
+    },
+    "cipher": {
+        "method": "chacha20",
+        "key": "passwordpasswordpasswordpassword",
+        "iv": "password"
+    }
+}
+```
