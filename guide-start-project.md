@@ -60,3 +60,18 @@ Use mysql.json
     "encoding": "utf8mb4"
 }
 ```
+
+7)
+Setup app.json
+
+replace PROJECT_NAME and key
+https://www.random.org/
+
+```swift
+{
+	"key": "replaceme",
+    "name" "PROJECT_NAME",
+    "url": "0.0.0.0:8080"
+}
+
+```
