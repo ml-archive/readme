@@ -48,3 +48,15 @@ Change chipher key & iv -> https://www.random.org/
     }
 }
 ```
+
+6)
+Use mysql.json
+```swift
+{
+    "host": "127.0.0.1",
+    "user": "root",
+    "password": "secret",
+    "database": "danica_pension",
+    "encoding": "utf8mb4"
+}
+```
