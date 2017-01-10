@@ -56,7 +56,7 @@ Use mysql.json
     "host": "127.0.0.1",
     "user": "root",
     "password": "secret",
-    "database": "danica_pension",
+    "database": "PROJECT_NAME",
     "encoding": "utf8mb4"
 }
 ```
