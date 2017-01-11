@@ -34,7 +34,7 @@ drop.middleware.append(SessionsMiddleware(sessions: CacheSessions(cache: drop.ca
 ```
 
 5)
-Change chipher key & iv -> https://www.random.org/
+crypto.json config - change chipher key & iv -> https://www.random.org/strings/
 ```swift
 {
     "hash": {
@@ -64,12 +64,10 @@ Use mysql.json
 7)
 Setup app.json
 
-replace PROJECT_NAME and key
-https://www.random.org/
+replace PROJECT_NAME
 
 ```swift
 {
-	"key": "replaceme",
     "name" "PROJECT_NAME",
     "url": "0.0.0.0:8080"
 }
