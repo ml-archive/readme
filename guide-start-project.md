@@ -2,8 +2,6 @@
 
 2) Set up git, add a repository on gitlab and push the initial code
 
-3) Setup bugsnag, by creating a bugsnag application and https://github.com/nodes-vapor/bugsnag
-
 3) Setup redis
 
 Add dependency
