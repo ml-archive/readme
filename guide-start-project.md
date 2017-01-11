@@ -71,3 +71,20 @@ replace PROJECT_NAME
 }
 
 ```
+
+8)
+Setup akira.yml
+
+project:
+    name: CHANGE 
+    type: vapor
+prepare:
+- bugsnag
+- mysql
+- vapor_config
+config:
+    database: /Config/mysql.json
+docker_template: "vapor-supervisor"
+slack_channel: "#CHANGE"
+mail:
+  - "CHANGE"
