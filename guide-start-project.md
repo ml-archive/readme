@@ -74,7 +74,7 @@ replace PROJECT_NAME
 
 8)
 Setup akira.yml
-
+```
 project:
     name: CHANGE 
     type: vapor
@@ -88,3 +88,4 @@ docker_template: "vapor-supervisor"
 slack_channel: "#CHANGE"
 mail:
   - "CHANGE"
+```
