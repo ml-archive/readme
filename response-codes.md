@@ -6,6 +6,9 @@
  
 ### 401 Forbidden
  - Trying to access data which is not owned by that user
+ 
+### 403 Unauthorized
+ - Trying to CRUD resource or any execute any action without authorization 
 
 ### 404 Not found
  - Url does not exist, message will be default by Vapor: "Page not found"
