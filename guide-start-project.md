@@ -28,6 +28,8 @@ Add redis.json config
 Remove the "session" middleware in droplet.json and add this in main.swift
 
 ```swift
+import Sessions
+
 drop.middleware.append(SessionsMiddleware(sessions: CacheSessions(cache: drop.cache)))
 ```
 
@@ -66,7 +68,7 @@ replace PROJECT_NAME
 
 ```swift
 {
-    "name" "PROJECT_NAME",
+    "name": "PROJECT_NAME",
     "url": "0.0.0.0:8080"
 }
 
