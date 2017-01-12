@@ -105,3 +105,12 @@ slack_channel: "#CHANGE"
 mail:
   - "CHANGE"
 ```
+
+9)
+CORS, will the API be used by a webapp (in browser, FE team)
+Luckily this is integrated in Vapor, just add middleware to your API routes
+
+```
+try CORSMiddleware()
+
+```
