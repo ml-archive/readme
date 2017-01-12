@@ -34,7 +34,7 @@ drop.middleware.append(SessionsMiddleware(sessions: CacheSessions(cache: drop.ca
 ```
 
 5)
-crypto.json config - change chipher key & iv -> https://www.random.org/strings/
+crypto.json config - change chipher key (32 bytes) & iv (8 bytes) -> https://www.random.org/strings/
 ```swift
 {
     "hash": {
