@@ -11,6 +11,7 @@ Add dependency
 
 ```swift
 import VaporRedis
+import Sessions
 try drop.addProvider(VaporRedis.Provider(config: drop.config))
 ```
 
