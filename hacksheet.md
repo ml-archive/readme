@@ -10,3 +10,6 @@ App     38017 casper_r    4u  IPv4 0xb334c0f620b8c201      0t0  TCP *:http-alt (
 ```
 ### Retrieve client ip
 try request.peerAddress?.address()
+
+### URLs in `Package.swift`
+Make sure that all URLs for packages in `Package.swift` uses `https` and ends with `.git`.
