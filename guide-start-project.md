@@ -50,7 +50,20 @@ crypto.json config - change chipher key (32 bytes) & iv (8 bytes) -> https://www
 ```
 
 6)
-Use mysql.json
+Set up MySQL
+
+Add package
+```swift
+.Package(url: "https://github.com/vapor/mysql-provider.git", majorVersion: 1, minor: 1),
+```
+
+Setup provider
+```swift
+import VaporMySQL
+try drop.addProvider(VaporMySQL.Provider.self)
+```
+
+config/mysql.json
 ```swift
 {
     "host": "127.0.0.1",
