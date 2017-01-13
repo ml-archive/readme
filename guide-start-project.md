@@ -1,4 +1,4 @@
-1) `vapor new test --template=https://github.com/nodes-vapor/template`
+1) `vapor new my-project-name --template=nodes-vapor/template`
 
 2) Set up git, add a repository on gitlab and push the initial code
 
