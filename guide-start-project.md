@@ -114,3 +114,4 @@ Luckily this is integrated in Vapor, just add the middleware
 drop.middleware.insert(CORSMiddleware(), at: 0)
 ```
 Read more: https://github.com/vapor/documentation/blob/master/http/cors.md
+Test: http://codepen.io/dennishn/pen/BLbYyJ
