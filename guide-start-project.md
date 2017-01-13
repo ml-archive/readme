@@ -108,8 +108,9 @@ mail:
 
 9)
 CORS, will the API be used by a webapp (in browser, FE team)
-Luckily this is integrated in Vapor, just add middleware to your API routes
-https://github.com/vapor/documentation/blob/master/http/cors.md
+Luckily this is integrated in Vapor, just add the middleware
+
 ```
 drop.middleware.insert(CORSMiddleware(), at: 0)
 ```
+Read more: https://github.com/vapor/documentation/blob/master/http/cors.md
