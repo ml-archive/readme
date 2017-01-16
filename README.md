@@ -11,7 +11,8 @@
  - Storage: https://github.com/nodes-vapor/storage
  - Push UA: https://github.com/nodes-vapor/push-urban-airship
  - Translate: https://github.com/nodes-vapor/nstack
- - Log: https://github.com/SwiftyBeaver/SwiftyBeaver-Vapor
+ - Log: https://github.com/SwiftyBeaver/SwiftyBeaver-Vapor -> Check linux
+ - API Auth: https://github.com/nodes-vapor/jwt-keychain
 
 See overall board
 https://github.com/nodes-vapor/readme/projects/1
