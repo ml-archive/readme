@@ -111,7 +111,12 @@ CORS, will the API be used by a webapp (in browser, FE team)
 Luckily this is integrated in Vapor, just add the middleware
 
 ```
-drop.middleware.insert(CORSMiddleware(), at: 0)
+let corsConfiguration = CORSConfiguration(
+    allowedOrigin: .all,
+    allowedMethods: [.get, .post, .put, .options, .delete, .patch],
+    allowedHeaders: ["Accept", "Authorization", "Content-Type", "Origin", "X-Requested-With", "N-Meta"]
+)
+drop.middleware.insert(CORSMiddleware(configuration: corsConfiguration), at: 0)
 ```
 Read more: https://github.com/vapor/documentation/blob/master/http/cors.md
 Test: http://codepen.io/dennishn/pen/BLbYyJ
