@@ -128,6 +128,6 @@ https://github.com/nodes-vapor/storage
 try drop.addProvider(StorageProvider.self)
 Storage.cdnPathBuilder = { baseURL, path in
     let joinedPath = (baseURL + path)
-    return joinedPath.replacingOccurrences(of: "/[PROJECT-NAME]/images/original/", with: "/image/lokalboligv2/")        
+    return joinedPath.replacingOccurrences(of: "/[PROJECT-NAME]/images/original/", with: "/image/[PROJECT-NAME]/")        
 }
  ```
