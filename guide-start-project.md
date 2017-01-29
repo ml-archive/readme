@@ -120,3 +120,14 @@ drop.middleware.insert(CORSMiddleware(configuration: corsConfiguration), at: 0)
 ```
 Read more: https://github.com/vapor/documentation/blob/master/http/cors.md
 Test: http://codepen.io/dennishn/pen/BLbYyJ
+
+10) 
+Storage
+https://github.com/nodes-vapor/storage
+```swift
+try drop.addProvider(StorageProvider.self)
+Storage.cdnPathBuilder = { baseURL, path in
+    let joinedPath = (baseURL + path)
+    return joinedPath.replacingOccurrences(of: "/[PROJECT-NAME]/images/original/", with: "/image/lokalboligv2/")        
+}
+ ```
