@@ -25,7 +25,7 @@ Add `redis.json` config
 }
 ```
 
-Use redis cache session middleware instead of build in
+Use Redis cache session middleware instead of build in
 Remove the "session" middleware in `droplet.json` and add this in `main.swift`
 ```swift
 import Sessions
@@ -72,7 +72,7 @@ try drop.addProvider(VaporMySQL.Provider.self)
 }
 ```
 
-# 6 App configuration 
+# 6. App configuration 
 Setup `app.json`
 
 replace `PROJECT_NAME`
@@ -85,7 +85,7 @@ replace `PROJECT_NAME`
 
 ```
 
-# 7 Akira
+# 7. Akira
 Setup `akira.yml`
 ```
 project:
@@ -103,7 +103,7 @@ mail:
   - "CHANGE"
 ```
 
-# 8 CORS
+# 8. CORS
 Will the API be used by a webapp (in browser, FE team)?
 Luckily this is integrated in Vapor, just add the middleware
 
@@ -118,7 +118,7 @@ drop.middleware.insert(CORSMiddleware(configuration: corsConfiguration), at: 0)
 Read more: https://github.com/vapor/documentation/blob/master/http/cors.md
 Test: http://codepen.io/dennishn/pen/BLbYyJ
 
-# 9 Storage
+# 9. Storage
 https://github.com/nodes-vapor/storage
 ```swift
 try drop.addProvider(StorageProvider.self)
@@ -129,7 +129,7 @@ Storage.cdnPathBuilder = { baseURL, path in
 }
  ```
  
-# 10 Gatekeeper
+# 10. Gatekeeper
 https://github.com/nodes-vapor/gatekeeper
 ```
 let drop = Droplet()
