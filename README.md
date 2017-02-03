@@ -20,6 +20,7 @@
  - Flash messages: https://github.com/nodes-vapor/flash
  - Template: https://github.com/nodes-vapor/template
  - Model extraction + validation: https://github.com/nodes-vapor/sanitized (or https://github.com/bygri/vapor-forms)
+ - Rate limiter/SSL enforcer: https://github.com/nodes-vapor/gatekeeper
 
 See overall board
 https://github.com/nodes-vapor/readme/projects/1
