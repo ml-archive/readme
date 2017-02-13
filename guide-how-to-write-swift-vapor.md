@@ -41,7 +41,7 @@ Use marks ( `// MARK: -` and `// MARK:`) and comments throughout your code to k
 Descriptive and consistent naming makes software easier to read and understand. Use the Swift naming conventions described in the [API Design Guidelines](	https://swift.org/documentation/api-design-guidelines/). Some key takeaways:
 
 - Method names and variables must start with a lower case letter. 
-- Classes, structs, type names, enums should be capitalized. 
+- Classes, structs, and type names should be capitalized. 
 - The name of a variable should be enough to tell another programmer what that variable does. Don't use variable names such as `number`, `a`, `b`, `x`, `button`, `label`, etc. 
 - To adhere to the Swift 3 syntax, all enum cases will be lowerCamelCase and not UpperCamelCase as before.
 
