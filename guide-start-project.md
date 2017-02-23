@@ -132,11 +132,11 @@ Storage.cdnPathBuilder = { baseURL, path in
  ```
  Remember to change [PROJECT-NAME]
  
-# 10. Gatekeeper - Enforce https in production
+# 10. Gatekeeper - Enforce https in production (Skip for now 23/2-17)
 https://github.com/nodes-vapor/gatekeeper
 ```
 import Gatekeeper
-let enforcerMiddleware = SSLEnforcer(error: Abort.notFound, drop: drop)
+let enforcerMiddleware = SSLEnforcer(error: Abort.badRequest, drop: drop)
 ```
 Add that middleware to your routes, and make sure to test it!
 
