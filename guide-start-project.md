@@ -130,11 +130,19 @@ Storage.cdnPathBuilder = { baseURL, path in
     return joinedPath.replacingOccurrences(of: "/[PROJECT-NAME]/data/", with: "/data/[PROJECT-NAME]/")    
 }
  ```
+ Remember to change [PROJECT-NAME]
  
-# 10. Gatekeeper
+# 10. Gatekeeper - Enforce https in production
 https://github.com/nodes-vapor/gatekeeper
 ```
-let drop = Droplet()
-// this will only enforce if running in `production` mode.
-let enforcer = SSLEnforcer(error: Abort.notFound, drop: drop)
+import Gatekeeper
+let enforcerMiddleware = SSLEnforcer(error: Abort.notFound, drop: drop)
+```
+Add that middleware to your routes, and make sure to test it!
+
+# 11. Bugsnag
+https://github.com/nodes-vapor/bugsnag
+```
+import Bugsnag
+let bugsnagMiddleware = try BugsnagMiddleware(drop: drop)
 ```
