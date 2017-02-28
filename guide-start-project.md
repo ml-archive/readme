@@ -122,6 +122,7 @@ let corsConfiguration = CORSConfiguration(
 drop.middleware.insert(CORSMiddleware(configuration: corsConfiguration), at: 0)
 ```
 Read more: https://github.com/vapor/documentation/blob/master/http/cors.md
+
 Test: http://codepen.io/dennishn/pen/BLbYyJ
 
 # 9. Storage
