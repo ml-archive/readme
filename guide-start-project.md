@@ -7,6 +7,8 @@ vapor new my-project-name --template=https://github.com/nodes-vapor/template
 Set up git, add a repository on gitlab and push the initial code
 
 # 3. Redis
+Make sure you have Redis installed [Install via Homebrew](https://gist.github.com/nrollr/eb24336b8fb8e7ba5630)
+
 Add dependency
 ```swift
 .Package(url: "https://github.com/vapor/redis-provider.git", majorVersion: 1)
