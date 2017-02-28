@@ -92,7 +92,7 @@ replace `PROJECT_NAME`
 ```
 
 # 7. Akira
-Setup `akira.yml`
+Setup `.akira.yml`
 ```
 project:
     name: CHANGE 
