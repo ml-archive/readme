@@ -128,6 +128,8 @@ Test: http://codepen.io/dennishn/pen/BLbYyJ
 # 9. Storage
 https://github.com/nodes-vapor/storage
 ```swift
+import Foundation
+
 try drop.addProvider(StorageProvider.self)
 Storage.cdnPathBuilder = { baseURL, path in
     var joinedPath = (baseURL + path)
