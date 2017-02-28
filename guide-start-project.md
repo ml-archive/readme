@@ -54,6 +54,8 @@ drop.middleware.append(SessionsMiddleware(sessions: CacheSessions(cache: drop.ca
 ```
 
 # 5. MySQL
+Make sure you have MySQL installed [Install via Homebrew](https://blog.joefallon.net/2013/10/install-mysql-on-mac-osx-using-homebrew/)
+
 Add package
 ```swift
 .Package(url: "https://github.com/vapor/mysql-provider.git", majorVersion: 1, minor: 1),
