@@ -7,6 +7,8 @@ vapor new my-project-name --template=https://github.com/nodes-vapor/template
 Set up git, add a repository on gitlab and push the initial code
 
 # 3. Redis
+Make sure you have Redis installed [Install via Homebrew](https://gist.github.com/nrollr/eb24336b8fb8e7ba5630)
+
 Add dependency
 ```swift
 .Package(url: "https://github.com/vapor/redis-provider.git", majorVersion: 1)
@@ -52,6 +54,8 @@ drop.middleware.append(SessionsMiddleware(sessions: CacheSessions(cache: drop.ca
 ```
 
 # 5. MySQL
+Make sure you have MySQL installed [Install via Homebrew](https://blog.joefallon.net/2013/10/install-mysql-on-mac-osx-using-homebrew/)
+
 Add package
 ```swift
 .Package(url: "https://github.com/vapor/mysql-provider.git", majorVersion: 1, minor: 1),
@@ -88,7 +92,7 @@ replace `PROJECT_NAME`
 ```
 
 # 7. Akira
-Setup `akira.yml`
+Setup `.akira.yml`
 ```
 project:
     name: CHANGE 
@@ -118,6 +122,7 @@ let corsConfiguration = CORSConfiguration(
 drop.middleware.insert(CORSMiddleware(configuration: corsConfiguration), at: 0)
 ```
 Read more: https://github.com/vapor/documentation/blob/master/http/cors.md
+
 Test: http://codepen.io/dennishn/pen/BLbYyJ
 
 # 9. Storage
