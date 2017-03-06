@@ -79,7 +79,7 @@ try drop.addProvider(VaporMySQL.Provider.self)
 ```
 
 # 6. App configuration 
-Setup `app.json`
+Setup `app.json` for each enviroment folder
 
 replace `PROJECT_NAME`
 
