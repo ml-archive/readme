@@ -138,6 +138,8 @@ Storage.cdnPathBuilder = { baseURL, path in
 }
  ```
  Remember to change [PROJECT-NAME]
+
+ You can find the default storage configuration .json-file on our internal Gitlab on nodescloud
  
 # 10. Gatekeeper - Enforce https in production (Skip for now 23/2-17)
 https://github.com/nodes-vapor/gatekeeper
