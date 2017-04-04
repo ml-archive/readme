@@ -26,7 +26,7 @@ URL: `/api/users`
 
 `password` (`String`) **required**: Password for user.
 
-`firstName` (`String`): User's first name.*
+`name` (`String`): User's name.
 
 ### Query parameters
 
