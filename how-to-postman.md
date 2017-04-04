@@ -6,7 +6,7 @@ _Please note that each section in this example might not make sense for a real e
 
 ## Search users
 
-Endpoint for fetching the entire dialogue tree
+Getting a list of users optionally filtered by type.
 
 ### Request details
 
