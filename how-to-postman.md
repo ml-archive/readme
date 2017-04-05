@@ -30,11 +30,11 @@ URL: `/api/users/:id`
 
 `limit` (`Int`): Number of entries to return (default: 10).
 
-`typeIds` *(`[Int]`): Filtering of types (default: all).
+`typeIds` (`[Int]`): Filtering of types (default: all).
 
 ### Parameters
 
-``email` (`String`) **required**: Email for user.
+`email` (`String`) **required**: Email for user.
 
 `password` (`String`) **required**: Password for user.
 
