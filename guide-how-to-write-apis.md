@@ -123,17 +123,21 @@ Fear not! No table with a list of available options comes without a section with
 
 ## Pagination
 
-TODO UPDATE THIS
-
 This is one of the tricky parts. Depending on what type of API you’re doing, pagination is implemented in different ways.
 
 If you're making an API to be used on the web, simple pagination using "pages" would work just fine. This is supported by our Paginator package and should work out of the box.
 
-But if you’re making an API for the mobile team(s) then you need to do it in a bit more complex way. Because devices usually have a “load more” feature, we can’t use the shipped pagination, since we could risk getting duplicates or even miss new entries. Therefore we return the collection in “batches” instead of pages.
+But if you’re making an API for the mobile team(s) then you need to do it in a bit more complex way. Because devices usually have a “load more” feature, we can’t use the "pages" approach, since we could risk getting duplicates or even miss new entries. Therefore we return the collection in “batches” instead of pages.
+
+Remember to see the Response section for examples of how to return meta data for pagination.
 
 ### Using `lastId`
 
-TODO
+Let’s assume we want to have a feed of posts. 10 posts per “load more”. Every time our endpoint is being requested we return a collection of 10 posts. When a user then scrolls to the bottom of the feed, they trigger the “load more” feature. The mobile app then requests the same endpoint but with a `lastId` query parameter.
+
+This parameter contains the ID of the last item in the previous returned batch of posts. When we receive the `lastId` parameter, we use that ID to only return posts that have IDs which are greater than the received `lastId`.
+
+Please note that in order for this approach to work, the collection needs to be sorted by ID.
 
 #### Examples
 
@@ -149,11 +153,15 @@ It might sound a bit complicated, but it’s really not. Here is a few examples,
 
 ### Using pages
 
-TODO
+If one decides that a "pages" approach works for their API, the `Paginator` package can be used. This package takes care of paginating the results as well as building the meta data for the response.
 
 #### Examples
 
-TODO
+| Endpoint             | Description                              |
+| -------------------- | ---------------------------------------- |
+| `/api/posts`         | Initial request. Return first 10 posts.  |
+| `/api/posts/?page=2` | Second page, returning 10 posts using an offset of 10. |
+| `/api/posts/?page=3` | Third page, returning 10 posts using an offset of 20. |
 
 
 ## Authentication
@@ -211,6 +219,8 @@ Generally we have a few rules the response has to follow:
 - Date/timestamps should always be returned with a time zone.
 - Collections should be returned in a key (e.g. `data`).
 - Pagination data should be returned in a `meta` key.
+- Endpoints should always return a JSON payload.
+  - When an endpoint doesn't have meaningful data to return (e.g. when deleting something), use a `status` key to communicate the status of the endpoint.
 
 ### Examples
 
@@ -228,7 +238,16 @@ Just to round it all off, here’s a few examples of how our response will retur
 }
 ```
 
+#### An endpoint without meaningful data to return
+
+```
+{
+  	"status": "ok"
+}
+```
+
 #### A collection of items
+
 ```
 {
     "data": [
