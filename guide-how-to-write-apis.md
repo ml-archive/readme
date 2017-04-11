@@ -269,7 +269,7 @@ Just to round it all off, here’s a few examples of how our response will retur
 
 ```
 {
-  	"status": "ok"
+    "status": "ok"
 }
 ```
 
