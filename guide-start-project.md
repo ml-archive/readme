@@ -1,8 +1,13 @@
-1) `vapor new test --template=https://github.com/nodes-vapor/template`
+# 1. Vapor
+```
+vapor new my-project-name --template=https://github.com/nodes-vapor/template
+```
 
-2) Set up git, add a repository on gitlab and push the initial code
+# 2. Git
+Set up git, add a repository on gitlab and push the initial code
 
-3) Setup redis
+# 3. Redis
+Make sure you have Redis installed [Install via Homebrew](https://gist.github.com/nrollr/eb24336b8fb8e7ba5630)
 
 Add dependency
 ```swift
@@ -15,27 +20,25 @@ import Sessions
 try drop.addProvider(VaporRedis.Provider(config: drop.config))
 ```
 
-Add redis.json config
+Add `redis.json` config
 ```json
 {
     "address": "127.0.0.1",
     "port": "6379",
     "database": 0
 }
-
 ```
 
-4) Use redis cache session middleware instead of build in
-Remove the "session" middleware in droplet.json and add this in main.swift
-
+Use Redis cache session middleware instead of build in
+Remove the "session" middleware in `droplet.json` and add this in `main.swift`
 ```swift
 import Sessions
 
 drop.middleware.append(SessionsMiddleware(sessions: CacheSessions(cache: drop.cache)))
 ```
 
-5)
-crypto.json config - change chipher key (32 bytes) & iv (8 bytes) -> https://www.random.org/strings/
+# 4. Crypto
+`crypto.json` config - change hash and chipher key (32 bytes) & iv (8 bytes) -> https://www.random.org/strings/
 ```swift
 {
     "hash": {
@@ -50,8 +53,8 @@ crypto.json config - change chipher key (32 bytes) & iv (8 bytes) -> https://www
 }
 ```
 
-6)
-Set up MySQL
+# 5. MySQL
+Make sure you have MySQL installed [Install via Homebrew](https://blog.joefallon.net/2013/10/install-mysql-on-mac-osx-using-homebrew/)
 
 Add package
 ```swift
@@ -64,7 +67,7 @@ import VaporMySQL
 try drop.addProvider(VaporMySQL.Provider.self)
 ```
 
-config/mysql.json
+`Config/mysql.json`
 ```swift
 {
     "host": "127.0.0.1",
@@ -75,10 +78,10 @@ config/mysql.json
 }
 ```
 
-7)
-Setup app.json
+# 6. App configuration 
+Setup `app.json` for each enviroment folder
 
-replace PROJECT_NAME
+replace `PROJECT_NAME`
 
 ```swift
 {
@@ -88,8 +91,8 @@ replace PROJECT_NAME
 
 ```
 
-8)
-Setup akira.yml
+# 7. Akira
+Setup `.akira.yml`
 ```
 project:
     name: CHANGE 
@@ -106,11 +109,49 @@ mail:
   - "CHANGE"
 ```
 
-9)
-CORS, will the API be used by a webapp (in browser, FE team)
-Luckily this is integrated in Vapor, just add middleware to your API routes
+# 8. CORS
+Will the API be used by a webapp (in browser, FE team)?
+Luckily this is integrated in Vapor, just add the middleware
 
 ```
-try CORSMiddleware()
+let corsConfiguration = CORSConfiguration(
+    allowedOrigin: .all,
+    allowedMethods: [.get, .post, .put, .options, .delete, .patch],
+    allowedHeaders: ["Accept", "Authorization", "Content-Type", "Origin", "X-Requested-With", "N-Meta"]
+)
+drop.middleware.insert(CORSMiddleware(configuration: corsConfiguration), at: 0)
+```
+Read more: https://github.com/vapor/documentation/blob/master/http/cors.md
 
+Test: http://codepen.io/dennishn/pen/BLbYyJ
+
+# 9. Storage
+https://github.com/nodes-vapor/storage
+```swift
+import Foundation
+
+try drop.addProvider(StorageProvider.self)
+Storage.cdnPathBuilder = { baseURL, path in
+    var joinedPath = (baseURL + path)
+    joinedPath = joinedPath.replacingOccurrences(of: "/[PROJECT-NAME]/images/original/", with: "/image/[PROJECT-NAME]/")    
+    return joinedPath.replacingOccurrences(of: "/[PROJECT-NAME]/data/", with: "/data/[PROJECT-NAME]/")    
+}
+ ```
+ Remember to change [PROJECT-NAME]
+
+ You can find the default storage configuration .json-file on our internal Gitlab on nodescloud
+ 
+# 10. Gatekeeper - Enforce https in production (Skip for now 23/2-17)
+https://github.com/nodes-vapor/gatekeeper
+```swift
+import Gatekeeper
+let enforcerMiddleware = SSLEnforcer(error: Abort.badRequest, drop: drop)
+```
+Add that middleware to your routes, and make sure to test it!
+
+# 11. Bugsnag
+https://github.com/nodes-vapor/bugsnag
+```swift
+import Bugsnag
+let bugsnagMiddleware = try BugsnagMiddleware(drop: drop)
 ```
