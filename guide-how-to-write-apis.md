@@ -1,4 +1,4 @@
-# Best Practice APIs
+# How to write APIs
 
 ## Table of Contents
 
