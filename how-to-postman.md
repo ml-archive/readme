@@ -1,49 +1,49 @@
 # Postman
 
-Below is an example for how to write Postman documentation. Looking at the raw representation of this file, one should be able to copy/paste this into the documentation for an endpoint. If a section is not relevant for a particular endpoint, please fill in n/a (to make it more clear that it was not just forgotten).
+## Search dialogue tree
 
-_Please note that each section in this example might not make sense for a real endpoint, but its purpose is just to give guidance on how to fill out each section._
-
-## Search users
-
-Getting a list of users optionally filtered by type.
+Endpoint for fetching the entire dialogue tree
 
 ### Request details
 
 Method: `GET`
 
-URL: `/api/users/:id`
+URL: `/api/dialogue`
 
 ### Headers
 
-`Authorization` (`String`) **required**: Access token (bearer format).
+`Accept` (string) **required**
 
-`N-Meta` **required**: N-Meta header.
-
-### URL Parameters
-
-`id` (`Int`) **required**: ID for user.
-
-### Query parameters
-
-`lastId` (`Int`): Last ID in the collection of entries.
-
-`limit` (`Int`): Number of entries to return (default: 10).
-
-`typeIds` (`[Int]`): Filtering of types (default: all).
+`Authorization` (string) **required** *access token*
 
 ### Parameters
 
-`email` (`String`) **required**: Email for user.
+`node_id` (integer) **required** *Id of of last node user encountered (cannot have any children)*
 
-`password` (`String`) **required**: Password for user.
+`image` (file) *File upload for image type nodes only*
 
-`name` (`String`): User's name.
+`text_answer` (string) *Free text answer for text type nodes only*
 
-### Response codes
+### Query parameters
+
+`lastId` (integer) *Last ID in the collection of entries*
+
+`limit` (integer) *Number of entries to return (default: 10)*
+
+`typeIds` *(comma seperated ids) (default: all)*
+
+`municipalityIds` *(comma seperated ids) (default: all)*
+
+### URL parameter
+
+`:warning_id` (integer) *ID of warning*
+
+### Available includes
+
+n/a
+
+### Response codes(s)
 
 `200` OK
-
-`401` Unauthorized
 
 `412` Precondition failed
