@@ -1,5 +1,31 @@
 # Best Practice APIs
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Endpoints](#endpoints)
+ - [Anatomy of an endpoint](#anatomy-of-an-endpoint)
+ - [Request methods](#request-methods)
+ - [Examples](#examples)
+  - [Tips on what NOT to do](#tips-on-what-not-to-do)
+- [Headers](#headers)
+- [Images](#images)
+ - [A few things to remember](#a-few-things-to-remember)
+ - [Examples](#examples-1)
+- [Pagination](#pagination)
+  - [Using `lastId`](#using-lastid)
+  - [Using pages](#using-pages)
+    - [Examples](#examples-2)
+- [Authentication](#authentication)
+  - [3rd party authentication](#3rd-party-authentication)
+- [Response codes](#response-codes)
+- [Response](#response)
+  - [Examples](#examples-3)
+    - [A single item](#a-single-item)
+    - [An endpoint without meaningful data to return](#an-endpoint-without-meaningful-data-to-return)
+    - [A collection of items](#a-collection-of-items)
+    - [A paginated collection of items](#a-paginated-collection-of-items)
+
 ## Introduction
 
 This document is a specification of how we are doing (and should do) our internal API’s at Nodes. Our API’s should support usage from our front-end and mobile applications.
@@ -25,8 +51,8 @@ Below is a breakdown of the different pieces in the endpoint:
 
 1. All our API’s are prefixed with `/api/`.
 2. `{objects}` is the name of the object(s) you are returning. Let’s say you’re retrieving a collection of posts. Then `{objects}` should be `posts`. 
-3. `{slug}` can theoretically be anything you’d like. It’s just used as an identifier. `9` out of `10` times this is usually a unique identifier. A `{slug}` is used to retrieve a specific item in a collection of objects.
-4. `{action}` is used when we want to perform a certain action. This could be, for example, like, follow or comment. The purpose of the action usually depends on the request method.
+3. `{slug}` can theoretically be anything you’d like. It’s just used as an identifier. 9 out of 10 times this is usually a unique identifier. A `{slug}` is used to retrieve a specific item in a collection of objects.
+4. `{action}` is used when we want to perform a certain action. This could be, for example, `like`, `follow` or `comment`. The purpose of the action usually depends on the request method.
 5. `[filters]` is mostly used when we’re retrieving a collection of objects. There’s no limit to how many filters you can do. All that is required is that they are specified as query parameters.
 6. `[sorting]` is exactly like filters. No limit to how many you can do. Just make sure they’re specified as query parameters.
 7. `[limit]` is where we specify how many items in a collection we want returned.
@@ -101,9 +127,9 @@ The table below shows all available settings you can use on an image. The parame
 
 ### A few things to remember
 
-- When using the mode **resize** and you only provide either width or height, it will resize by the image’s aspect ratio.
-- When using the mode **crop** both width and height are **required**. It will always crop from the center of the image and out.
-- When using the mode **fit** the image will both be resized **AND** cropped to fit the desired dimensions.
+- When using the mode `resize` and you only provide either width or height, it will resize by the image’s aspect ratio.
+- When using the mode `crop` both width and height are **required**. It will always crop from the center of the image and out.
+- When using the mode `fit` the image will both be resized **AND** cropped to fit the desired dimensions.
 - Images **can not** be upscaled. Meaning that If you request a height of `200` but the image only has a height of 100, than it will be returned with a height of `100`.
 
 ### Examples
