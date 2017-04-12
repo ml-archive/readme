@@ -1,6 +1,6 @@
-# How to write Swift/Vapor
+# How to write Swift
 
-The intention of this document is to guide how we should write Swift/Vapor at Nodes. The document should be considered as work-in-progress and PR's with corrections etc. are much appreciated.
+The intention of this document is to guide how we should write Swift at Nodes. The document should be considered as work-in-progress and PR's with corrections etc. are much appreciated.
 
 ## Table of Contents
 
