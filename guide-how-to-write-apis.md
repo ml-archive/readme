@@ -21,9 +21,13 @@
   - [3rd party authentication](#3rd-party-authentication)
 - [Response codes](#response-codes)
 - [Response](#response)
+  - [Errors](#errors)
+    - [Vapor 1](#vapor-1)
+    - [Vapor 2](#vapor-2)
   - [Examples](#examples-4)
     - [A single item](#a-single-item)
     - [An endpoint without meaningful data to return](#an-endpoint-without-meaningful-data-to-return)
+    - [An error in Vapor 2](#an-error-in-vapor-2)
     - [A collection of items](#a-collection-of-items)
     - [A paginated collection of items](#a-paginated-collection-of-items)
 
@@ -250,6 +254,30 @@ Generally we have a few rules the response has to follow:
 - Endpoints should always return a JSON payload.
   - When an endpoint doesn't have meaningful data to return (e.g. when deleting something), use a `status` key to communicate the status of the endpoint.
 
+### Errors
+
+When errors occur the consumer will get a JSON payload verifying that an error occurred together with a reason for why the error occurred. If the consumer is hitting endpoints on a non-production environment, useful debugging data might also be included.
+
+Since error handling has changed slightly between Vapor 1 and Vapor 2, these are the keys to expect from the different versions.
+
+#### Vapor 1
+
+| Key        | Description                              |
+| ---------- | ---------------------------------------- |
+| `code`     | The HTTP code.                           |
+| `error`    | A boolean confirming an error occurred.  |
+| `message`  | A description of the error that occurred. |
+| `metadata` | Any custom metadata that might be included. **Only** available on a non-production environment. |
+
+#### Vapor 2
+
+| Endpoint   | Description                              |
+| ---------- | ---------------------------------------- |
+| `error`    | A boolean confirming an error occurred.  |
+| `reason`   | A description of the error that occurred. |
+| `metadata` | Any custom metadata that might be included. **Only** available on a non-production environment. |
+
+
 ### Examples
 
 Just to round it all off, here’s a few examples of how our response will return depending on whether you’re about to return a single item, a collection or a paginated result set.
@@ -271,6 +299,15 @@ Just to round it all off, here’s a few examples of how our response will retur
 ```
 {
     "status": "ok"
+}
+```
+
+#### An error in Vapor 2
+
+```
+{
+	"error": true,
+	"reason": "Invalid email or password"
 }
 ```
 
