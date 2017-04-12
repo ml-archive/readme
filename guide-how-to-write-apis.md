@@ -37,7 +37,7 @@ We all know that not all projects are the same. So at some point, you might have
 
 ## Endpoints
 
-Endpoints with literal and readable URLs is what makes an API awesome. So to make everything easy and convenient for you, we have specified how you should do it. No more thinking about if it should be plural or where you should put your slug. Yay!
+Endpoints with literal and readable URLs is what makes an API awesome. So to make everything easy and convenient for you, we have specified how you should do it. No more thinking about if it should be plural or where you should put your slug.
 
 
 ### Anatomy of an endpoint
@@ -45,7 +45,7 @@ Endpoints with literal and readable URLs is what makes an API awesome. So to mak
 The anatomy of an endpoint should look like this:
 
 ```
-/api/{objects}/{slug}/{action}/?[filters]&[sorting]&[limit]&[...]
+/api/{objects}/{slug}/{action}?[filters]&[sorting]&[limit]&[...]
 ```
 
 Below is a breakdown of the different pieces in the endpoint:
@@ -84,9 +84,9 @@ Now that we’ve learned about the anatomy of our endpoints and the different re
 | `GET`    | `/api/posts/28`                          | Retrieve post #28.                       |
 | `PATCH`  | `/api/posts/28`                          | Update data in post #28.                 |
 | `POST`   | `/api/posts/comments`                    | Add comment to post #28.                 |
-| `GET`    | `/api/posts/comments/?status=approved&limit=10&page=4` | Retrieve comments for post #28 which are approved. But only 10 per page - starting from page 4. |
+| `GET`    | `/api/posts/comments?status=approved&limit=10&page=4` | Retrieve comments for post #28 which are approved. But only 10 per page - starting from page 4. |
 | `DELETE` | `/api/comment/1987`                      | Delete comment #1987.                    |
-| `GET`    | `/api/users/?active=true&sort=username&direction=asc&search=nodes` | Search for “nodes” in active users, sorted  by username ascendingly. |
+| `GET`    | `/api/users?active=true&sort=username&direction=asc&search=nodes` | Search for “nodes” in active users, sorted  by username ascendingly. |
 
 
 #### Tips on what NOT to do
