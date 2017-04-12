@@ -1,12 +1,14 @@
-# 1. Vapor
+# How to start a project
+
+## 1. Vapor
 ```
 vapor new my-project-name --template=https://github.com/nodes-vapor/template
 ```
 
-# 2. Git
+## 2. Git
 Set up git, add a repository on gitlab and push the initial code
 
-# 3. Redis
+## 3. Redis
 Make sure you have Redis installed [Install via Homebrew](https://gist.github.com/nrollr/eb24336b8fb8e7ba5630)
 
 Add dependency
@@ -37,7 +39,7 @@ import Sessions
 drop.middleware.append(SessionsMiddleware(sessions: CacheSessions(cache: drop.cache)))
 ```
 
-# 4. Crypto
+## 4. Crypto
 `crypto.json` config - change hash and chipher key (32 bytes) & iv (8 bytes) -> https://www.random.org/strings/
 ```swift
 {
@@ -53,7 +55,7 @@ drop.middleware.append(SessionsMiddleware(sessions: CacheSessions(cache: drop.ca
 }
 ```
 
-# 5. MySQL
+## 5. MySQL
 Make sure you have MySQL installed [Install via Homebrew](https://blog.joefallon.net/2013/10/install-mysql-on-mac-osx-using-homebrew/)
 
 Add package
@@ -78,7 +80,7 @@ try drop.addProvider(VaporMySQL.Provider.self)
 }
 ```
 
-# 6. App configuration 
+## 6. App configuration 
 Setup `app.json` for each enviroment folder
 
 replace `PROJECT_NAME`
@@ -91,7 +93,7 @@ replace `PROJECT_NAME`
 
 ```
 
-# 7. Akira
+## 7. Akira
 Setup `.akira.yml`
 ```
 project:
@@ -109,7 +111,7 @@ mail:
   - "CHANGE"
 ```
 
-# 8. CORS
+## 8. CORS
 Will the API be used by a webapp (in browser, FE team)?
 Luckily this is integrated in Vapor, just add the middleware
 
@@ -125,7 +127,7 @@ Read more: https://github.com/vapor/documentation/blob/master/http/cors.md
 
 Test: http://codepen.io/dennishn/pen/BLbYyJ
 
-# 9. Storage
+## 9. Storage
 https://github.com/nodes-vapor/storage
 ```swift
 import Foundation
@@ -136,12 +138,12 @@ Storage.cdnPathBuilder = { baseURL, path in
     joinedPath = joinedPath.replacingOccurrences(of: "/[PROJECT-NAME]/images/original/", with: "/image/[PROJECT-NAME]/")    
     return joinedPath.replacingOccurrences(of: "/[PROJECT-NAME]/data/", with: "/data/[PROJECT-NAME]/")    
 }
- ```
+```
  Remember to change [PROJECT-NAME]
 
  You can find the default storage configuration .json-file on our internal Gitlab on nodescloud
- 
-# 10. Gatekeeper - Enforce https in production (Skip for now 23/2-17)
+
+## 10. Gatekeeper - Enforce https in production (Skip for now 23/2-17)
 https://github.com/nodes-vapor/gatekeeper
 ```swift
 import Gatekeeper
@@ -149,7 +151,7 @@ let enforcerMiddleware = SSLEnforcer(error: Abort.badRequest, drop: drop)
 ```
 Add that middleware to your routes, and make sure to test it!
 
-# 11. Bugsnag
+## 11. Bugsnag
 https://github.com/nodes-vapor/bugsnag
 ```swift
 import Bugsnag

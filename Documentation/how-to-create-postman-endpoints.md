@@ -1,4 +1,4 @@
-# Postman
+# How to create Postman endpoints
 
 Below is an example for how to write Postman documentation. Looking at the raw representation of this file, one should be able to copy/paste this into the documentation for an endpoint. If a section is not relevant for a particular endpoint, please fill in n/a (to make it more clear that it was not just forgotten).
 

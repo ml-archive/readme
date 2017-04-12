@@ -1,5 +1,5 @@
 
-# Emoji Support (UTF8MB4)
+# How to support emojis (UTF8MB4)
 
 ### A little background
 
@@ -22,25 +22,25 @@ While running a migration you won’t see MySQL 5.7 complaining about this, and 
     A good example of this is the PHP nodes/backend package. We have backend_roles table with the column slug varchar(255) and a reference to this column on the backend_users table, on the column user_role varchar(255). Do we really need a role slug to be 255 characters? We can reduce it to 191 characters and everything would be ok (191 * 4 = 764 bytes).
 
     This would represent a slug like this:
-35qh8PXbQeYxtfv5k3ZtaZChucgHm4GuWSFCum80oa4JQYBSFfEqn9ffEK378MIbmhVpGbhpVnLx5mk9MlLfVK05f3yrydwVBddMKoecA4rzFiaqWcrzrgf2yCH8GnmbEqC4Dk7ZZkVV7VEci32n0X1DqtmhDluuOjwkPrIxXeYsbotvgtkZ1bW6SEp0leB
+    35qh8PXbQeYxtfv5k3ZtaZChucgHm4GuWSFCum80oa4JQYBSFfEqn9ffEK378MIbmhVpGbhpVnLx5mk9MlLfVK05f3yrydwVBddMKoecA4rzFiaqWcrzrgf2yCH8GnmbEqC4Dk7ZZkVV7VEci32n0X1DqtmhDluuOjwkPrIxXeYsbotvgtkZ1bW6SEp0leB
 
     Enough? :)
 
 - Option2: We really need 255 characters!
 
     If we really need all 255 characters, we can consider using this innodb setting:
-http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_large_prefix
+    http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_large_prefix
 
 ### How to enable UTF8MB4 support on Vapor?
 
  Go to:
- 
+
  ```
 Config/
   - mysql.json
     secrets/
       - mysql.json
-```
+ ```
 
 And replace
 
