@@ -306,8 +306,8 @@ Just to round it all off, here’s a few examples of how our response will retur
 
 ```
 {
-	"error": true,
-	"reason": "Invalid email or password"
+    "error": true,
+    "reason": "Invalid email or password"
 }
 ```
 
