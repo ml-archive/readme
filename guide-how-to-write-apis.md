@@ -4,14 +4,14 @@
 
 - [Introduction](#introduction)
 - [Endpoints](#endpoints)
- - [Anatomy of an endpoint](#anatomy-of-an-endpoint)
- - [Request methods](#request-methods)
- - [Examples](#examples)
-  - [Tips on what NOT to do](#tips-on-what-not-to-do)
+  - [Anatomy of an endpoint](#anatomy-of-an-endpoint)
+  - [Request methods](#request-methods)
+  - [Examples](#examples)
+    - [Tips on what NOT to do](#tips-on-what-not-to-do)
 - [Headers](#headers)
 - [Images](#images)
- - [A few things to remember](#a-few-things-to-remember)
- - [Examples](#examples-1)
+  - [A few things to remember](#a-few-things-to-remember)
+  - [Examples](#examples-1)
 - [Pagination](#pagination)
   - [Using `lastId`](#using-lastid)
     - [Examples](#examples-2)
@@ -217,7 +217,7 @@ One of the most important things in an API is how it returns response codes. Eac
 | Code  | Title                     | Description                              |
 | ----- | ------------------------- | ---------------------------------------- |
 | `200` | `OK`                      | Should be returned when a request was successfully processed. e.g. when using `GET`, `PATCH`, `PUT` or `DELETE`. |
-| `200` | `Created`                 | Should be returned every time a record has been added to the database. e.g. when creating a new user or post. |
+| `201` | `Created`                 | Should be returned every time a record has been added to the database. e.g. when creating a new user or post. |
 | `304` | `Not modified`            | Should be returned when returning a cached response. |
 | `401` | `Unauthorized`            | Should be returned when authentication failed. |
 | `403` | `Forbidden`               | Should be returned when an authenticated user is trying to perform an action, which he/her does not permission to. |
