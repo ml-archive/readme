@@ -103,8 +103,9 @@ Below is a list of our most used headers. You might end up working on a project 
 | Header key        | Description                              |
 | ----------------- | ---------------------------------------- |
 | `Accept`          | This header is **required by all endpoints**. It’s used to identify the request as our own and to versioning our endpoints. **Default value**: `application/vnd.nodes.v1+json`. |
+| `Accept-Language` | Should contain ISO 639 code of language translations should be returned in. |
 | `Authorization`   | Should contain the authorized user’s token. This is used to gain access to protected endpoint. |
-| `Language`        | Should contain ISO 639 code of language translations should be returned in. |
+| `N-Meta`          | Should contain meta data about the consumer, such as platform, environment and more. |
 | `Facebook-Token`  | Should contain a valid Facebook Graph token. |
 | `Instagram-Token` | Should contain a valid Instagram OAuth token. |
 | `Twitter-Token`   | Should contain a valid Twitter OAuth token. |
