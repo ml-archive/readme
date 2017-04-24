@@ -19,8 +19,8 @@ Feel free to get in touch or to submit a PR to any of our repos.
 ## Configuration
 
 - [Git ignore](https://github.com/nodes-vapor/readme/blob/master/Configuration/.gitignore)
-- [Travis](https://github.com/nodes-vapor/readme/blob/master/Configuration/.swiftlint.yml)
-- [Swiftlint](https://github.com/nodes-vapor/readme/blob/master/Configuration/.travis.yml)
+- [Travis](https://github.com/nodes-vapor/readme/blob/master/Configuration/.travis.yml)
+- [Swiftlint](https://github.com/nodes-vapor/readme/blob/master/Configuration/.swiftlint.yml)
 
 ## Packages
 
