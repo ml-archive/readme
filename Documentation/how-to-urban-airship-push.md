@@ -46,9 +46,13 @@ Payload is a way to pass more information, fx for deeplinking
 Example of a payload could be
 
 ```json
-{
- "type": "friendRequest",
- "userId": 1
+"notification": {
+ "ios": {
+   "extra": {
+    "type": "friendRequest",
+    "userId": 1
+   }
+ }
 }
 ```
 
@@ -119,10 +123,18 @@ ex
 }
 ```
 ### Android
-Android generally have more flexibility since they have the option to build the notification in a callback.
 
-Often we just add it to the payload what sound file it should use
-Sometimes the type field might be enought
+Add it to payload. The Android app will handle this manually
+
+```json
+"notification": {
+ "android": {
+   "extra": {
+      "sound":"arrivedsound"
+   }
+ }
+}
+```
 
 ### Windows
 
@@ -190,7 +202,18 @@ Inside the ios object, set the key "badge": count or +1
 
 ### Android
 
-Android is building the notification them self in runtime. That means putting it in the payload should be just fine
+Add it to payload. 
+Note: this is not native Android!
+
+```json
+"notification": {
+ "android": {
+   "extra": {
+      "badge":"+1"
+   }
+ }
+}
+```
 
 ### Windows
 
