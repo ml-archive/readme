@@ -211,7 +211,7 @@ This solution requires you to loop each user. It is possible to send arrays of n
 
 Note: Also a creative solutions with tags can be used
 
-### Other
+# Other
 
 - Android has a "delivery_priority" field which should be set to high if the notification is a must. Else low-battery modes etc will ignore it ("normal" or "high")
 - Android has a Visibility option also. Which controls how much of the push message is showed in the lock screen (Android 5 feature)
