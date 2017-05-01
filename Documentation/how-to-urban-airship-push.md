@@ -16,7 +16,8 @@ But before we stop just here, we want this app to register to channel(s)
 
 4) UA will look up the namedUser or tag and loop through each push-tokens registered to this channel. And sent 1-by-1 to each push-network
 
-5) The push-network
+5) The push-network will queue the request from UA and sent the push message through a socket connection to the device. If the device is not online, it will save it for x hours (depending on push-network)
+
 ### Apps
 
 ### Tags
