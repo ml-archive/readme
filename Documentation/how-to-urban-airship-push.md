@@ -59,7 +59,8 @@ Example of a payload could be
 
 This will let the app know where to deeplink
 
-UA only not support nested data. If you need to send a full model, consider json-encoding it to 1 key
+UA does not support nested data. If you need to send a full model, consider json-encoding it to 1 key
+
 Note: there is limits on iOS for maximum 2kb of data
 
 # Channels
