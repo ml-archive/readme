@@ -42,7 +42,7 @@ Note: All keys should be setup be server variables and never be hardcoded
 # Alert
 A push message has a "alert" which is the string showed in the notification center. It has a limit of 255 chars. So limit it to less. 
 
-Note: iOS already truncate them earlier 
+Note: iOS already truncate them earlier (around 110 chars) 
 
 # Payloads
 
