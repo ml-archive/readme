@@ -24,9 +24,9 @@ In UA you create applications for each application & environment.
 
 For application ABC there should be 3 UA apps
 
-ABC - Development (development)
-ABC - Staging (production)
-ABC - Production (production)
+- ABC - Development (development)
+- ABC - Staging (production)
+- ABC - Production (production)
 
 The mode in () is the UA "Production status". The reason why we need "production" mode on staging is to have the option to do enterprise builds
 
