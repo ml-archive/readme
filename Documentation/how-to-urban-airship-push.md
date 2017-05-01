@@ -2,7 +2,7 @@
 Before digging into details it's important to understand the architectural idea
 ![image](https://cloud.githubusercontent.com/assets/1279756/25579133/383ca46e-2e75-11e7-8001-21d7e7d34f5a.png)
 
-## Diagram
+# Diagram
 1) Through the UA SDK (or the native integration) the app will request a push-token at APNS/GCM/FCM/WNS. This will trigger a popup to allow push notification on most platforms. This push token is unique for the App, device & certification (release, debug etc) and will expire after x days. 
 
 2) Through the SDK / API the push-token will be sent to UA and stored. UA can now send push messages to that device/app/certificate.
@@ -18,7 +18,7 @@ Before digging into details it's important to understand the architectural idea
 
 5) The push-network will queue the request from UA and sent the push message through a socket connection to the device. If the device is not online, it will save it for x hours (depending on push-network)
 
-## Apps
+# Apps
 
 In UA you create applications for each application & environment.
 
@@ -39,12 +39,12 @@ The App Master Secret is only suppose to be used for sending push via the API. N
 
 Note: All keys should be setup be server variables and never be hardcoded
 
-## Alert
+# Alert
 A push message has a "alert" which is the string showed in the notification center. It has a limit of 255 chars. So limit it to less. 
 
 Note: iOS already truncate them earlier 
 
-## Payloads
+# Payloads
 
 Payload is a way to pass more information, fx for deeplinking
 
@@ -62,7 +62,7 @@ This will let the app know where to deeplink
 UA only not support nested data. If you need to send a full model, consider json-encoding it to 1 key
 Note: there is limits on iOS for maximum 2kb of data
 
-## Channels
+# Channels
 There is currently 3 types of channels
  - named user (Always register with your userId)
  - alias (deprecated)
@@ -99,9 +99,14 @@ Backend will push to those tags, but will figure out if the the current time is 
 
 Note: Users who registered to both tags will not get the notification twice. 
 
-## Sound
+# Sound
 
 There is options to change the notification sound, either to other native sounds or custom
+
+- Setting sound to empty string "" will set no push sound
+- Setting the sound to "default" will set the sound to platforms default tone
+
+On top of that,
 There is some differences between the different platforms
 
 ### iOS
@@ -128,7 +133,7 @@ Sometimes the type field might be enought
 Right now it's only possible to use native sounds,
 And can be set same as iOS, just add the sound key in the wns object
 
-### Silent push notifications
+# Silent push notifications
 
 It's possible to sent a push notification without it appears in the notification center. This can be very handy to trigger updates in the app, update badge counts etc. 
 
@@ -148,11 +153,64 @@ and make sure to not have badge, sound & alert set in the ios object
 }
 
 ```
+### Android
 
+Android is building the notification them self in runtime. That means just agree on some kind of indication on silent and 
+Again the type could be enough, else create a payload key "silent": true fx
 
+# Badge count
+This is originally an iOS feature
+![image](https://cloud.githubusercontent.com/assets/1279756/25580264/c21753e6-2e7f-11e7-9499-265f73ea79e9.png)
 
-### Badge count
+But there is an option for doing something simular on android also
+![image](https://cloud.githubusercontent.com/assets/1279756/25580290/084cdfe8-2e80-11e7-9f09-e13c0c282866.png)
 
-### Priority 
+There is 2 ways of doing badge count
+
+## The big solution
+
+Like FB, Google etc, let the server keep track of unread count. And send silent push notification when this updates, to keep all you divices / platforms aligned 
+
+This can be very time consuming and often require a full activity / notification system before hand
+
+## The simple solution
+
+Use the +1 value, which will increase the counter by one in ios. And when you open to the app / specific view, you clear the count
+
+### iOS
+
+Inside the ios object, set the key "badge": count or +1
+
+```json
+{
+ "notification": {
+  "ios": {
+   "badge":"+1"
+  }
+ }
+}
+```
+
+### Android
+
+Android is building the notification them self in runtime. That means putting it in the payload should be just fine
+
+### Windows
+
+Not possible
 
 ### localization 
+
+First you need to setup a system to keep track of language for each user. 
+
+Setup a field on the user model "locale" and store the Accept-Language header here.
+Now when sending a push notification you can look up the user's locale before hand, and thereby translate it.
+
+This solution requires you to loop each user. It is possible to send arrays of namedUsers/aliases to minimize the network to UA (which is the slow part)
+
+Note: Also a creative solutions with tags can be used
+
+### Other
+
+- Android has a "delivery_priority" field which should be set to high if the notification is a must. Else low-battery modes etc will ignore it ("normal" or "high")
+- Android has a Visibility option also. Which controls how much of the push message is showed in the lock screen (Android 5 feature)
