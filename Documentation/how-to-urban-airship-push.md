@@ -7,7 +7,7 @@ Before digging into details it's important to understand the arcitectural idea
 
 2) Through the SDK / API the push-token will be sent to UA and stored. UA can now send push messages to that device/app/certificate.
 
-But before we stop just here, we want this app to register to channel(s)
+ The device also needs to register to channel(s), for easier segmentation
  - named user (Always register with your userId)
  - alias (deprecated)
  - tags (Push send to group of users, fx users who have push setting1 on, joins setting1 tag)
@@ -20,6 +20,25 @@ But before we stop just here, we want this app to register to channel(s)
 
 ### Apps
 
+In UA you create applications for each application & environment.
+
+For application ABC there should be 3 UA apps
+
+ABC - Development (development)
+ABC - Staging (production)
+ABC - Production (production)
+
+The mode in () is the UA "Production status". The reason why we need "production" mode on staging is to have the option to do enterprise builds
+
+The API keys can always be found at
+https://go.urbanairship.com/apps/[APP-ID]/api/
+
+If the certificates are not setup, this view cannot be found from navigation, so use the URL :)
+
+The App Master Secret is only suppose to be used for sending push via the API. Never store this in apps / frontend
+
+Note: All keys should be setup be server variables and never be hardcoded
+
 ### Tags
 
 ### Payloads
@@ -28,3 +47,6 @@ But before we stop just here, we want this app to register to channel(s)
 
 ### Silent push notifications
 
+### Badge count
+
+### Priority 
