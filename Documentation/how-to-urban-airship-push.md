@@ -163,6 +163,7 @@ This is originally an iOS feature
 ![image](https://cloud.githubusercontent.com/assets/1279756/25580264/c21753e6-2e7f-11e7-9499-265f73ea79e9.png)
 
 But there is an option for doing something simular on android also
+
 ![image](https://cloud.githubusercontent.com/assets/1279756/25580290/084cdfe8-2e80-11e7-9f09-e13c0c282866.png)
 
 There is 2 ways of doing badge count
