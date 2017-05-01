@@ -200,7 +200,7 @@ Android is building the notification them self in runtime. That means putting it
 
 Not possible
 
-### localization 
+# Localization 
 
 First you need to setup a system to keep track of language for each user. 
 
