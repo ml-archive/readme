@@ -39,9 +39,16 @@ The App Master Secret is only suppose to be used for sending push via the API. N
 
 Note: All keys should be setup be server variables and never be hardcoded
 
-### Tags
+### Alert
+A push message has a "alert" which is the string showed in the notification center. It has a limit of 255 chars. So limit it to less. 
+
+Note: iOS already truncate them earlier 
 
 ### Payloads
+
+
+
+### Tags
 
 ### Sound
 
