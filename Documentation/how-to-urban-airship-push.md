@@ -3,15 +3,17 @@ Before digging into details it's important to understand the architectural idea
 ![image](https://cloud.githubusercontent.com/assets/1279756/25579133/383ca46e-2e75-11e7-8001-21d7e7d34f5a.png)
 
 # Diagram
-1) Through  SDK (or the native integration) the app will request a push-token at APNS/GCM/FCM/WNS. This will trigger a popup to allow push notification on most platforms. This push token is unique for the App, device & certification (release, debug etc) and will expire after x days. 
+1) Through the UA-SDK (or the native integration) the app will request a push-token at it's platform push-network. This will trigger a popup to allow push notification on most platforms. This push-token is unique for the App, device & certification (release, debug etc) and will expire after x days. Luckily the UA SDK will deal with refreshing it.
 
-2) Through SDK / API the push-token will be sent to UA and stored. UA can now send push messages to that device & app & certificate. It's important to register to channels as well. [Read more](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-urban-airship-push.md#channels)
+2) Through UA-SDK / UA-API the push-token will be sent to UA and stored. UA can now send push notifications to that device & app & certificate. Since we do not want to deal with push-tokens vs users references. It's important to register to channels as well. [Read more](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-urban-airship-push.md#channels)
 
-3) Sending a push notification from a backend project happens via the API.
+3) Sending a push notification from a backend project happens via the API. It's normally triggered by
+ - Admin panel as a view, send to X, Y & Z with a custom alert.
+ - Triggered by an event, fx some else liked your post. The alert would be from NStack / Localization
 
-4) UA will look up the namedUser or tag and loop through each push-tokens registered to this channel. And sent 1-by-1 to each push-network
+4) UA will look up the namedUser or tag, loop through each push-tokens registered to this channel. And sent 1-by-1 to each push-network. This is done Async in queue.
 
-5) The push-network will queue the request from UA and sent the push message through a socket connection to the device. If the device is not online, it will save it for x hours (depending on push-network)
+5) The push-network will queue the request from UA and sent the push notification through a socket connection to the device. If the device is not online, it will save it for x hours (depending on push-network)
 
 # Apps
 
@@ -30,16 +32,18 @@ https://go.urbanairship.com/apps/[APP-ID]/api/
 
 If the certificates are not setup, this view cannot be found from navigation, so use the URL :)
 
-The App Master Secret is only suppose to be used for sending push via the API. Never store this in apps / frontend
+The App Master Secret is only suppose to be used for sending push via the API. Never store this key in apps / frontend.
 
-Note: All keys should be setup be server variables and never be hardcoded
+Note: All keys should be setup as server variables and never be hardcoded
 
 # Alert
 A push message has a "alert" which is the string showed in the notification center. It has a limit of 255 chars. So limit it to less. 
 
+Always put the alert message in NStack / Localization
+
 Note: iOS already truncate them earlier (around 110 chars) 
 
-# Payloads
+# Payloads / Extra
 
 Payload is a way to pass more information, fx for deeplinking
 
@@ -62,7 +66,7 @@ UA does not support nested data. If you need to send a full model, consider json
 
 Note: there is limits on iOS for maximum 2kb of data
 
-# Channels
+# Channels / Tags / Named user
 There is currently 3 types of channels
  - named user (Always register with your userId)
  - alias (deprecated)
