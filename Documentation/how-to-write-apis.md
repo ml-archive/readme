@@ -95,12 +95,12 @@ Now that we’ve learned about the anatomy of our endpoints and the different re
 
 #### Tips on what NOT to do
 
-Hopefully you’re already aware of this. But not at any given time should your endpoint end with `.json`, `.xml` or `.something`. If in doubt, reach out to any of the backend developers at Nodes.
+Hopefully you’re already aware of this. But not at any given time should your endpoint end with `.json`, `.xml` or `.something`. If in doubt, reach out to one of the backend developers at Nodes.
 
 
 ## Headers
 
-We love headers! And we have a few that we use pretty much in every one of our endpoints. It’s also a very nice way to send information along with your request without “parameter bomb” your endpoint, e.g. language or 3rd party tokens.
+We love headers! And we have a few that we use pretty much in every one of our endpoints. It’s also a very nice way to send information along with your request without “parameter bombing” your endpoint, e.g. with language or 3rd party tokens.
 
 Below is a list of our most used headers. You might end up working on a project where you have to integrate with this weird 3rd party API, which requires you to make a custom header that is not listed below. Go for it, Batman. No requirements here.
 
