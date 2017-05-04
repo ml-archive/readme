@@ -87,9 +87,9 @@ Now that we’ve learned about the anatomy of our endpoints and the different re
 | `POST`   | `/api/posts`                             | Create a new post.                       |
 | `GET`    | `/api/posts/28`                          | Retrieve post #28.                       |
 | `PATCH`  | `/api/posts/28`                          | Update data in post #28.                 |
-| `POST`   | `/api/posts/comments`                    | Add comment to post #28.                 |
-| `GET`    | `/api/posts/comments?status=approved&limit=10&page=4` | Retrieve comments for post #28 which are approved. But only 10 per page - starting from page 4. |
-| `DELETE` | `/api/comment/1987`                      | Delete comment #1987.                    |
+| `POST`   | `/api/posts/28/comments`                    | Add comment to post #28.                 |
+| `GET`    | `/api/posts/28/comments?status=approved&limit=10&page=4` | Retrieve comments for post #28 which are approved. But only 10 per page - starting from page 4. |
+| `DELETE` | `/api/posts/28/comments/1987` or `/api/comments/1987`          | Delete comment #1987.                    |
 | `GET`    | `/api/users?active=true&sort=username&direction=asc&search=nodes` | Search for “nodes” in active users, sorted  by username ascendingly. |
 
 
