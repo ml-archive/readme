@@ -236,6 +236,7 @@ One of the most important things in an API is how it returns response codes. Eac
 | `445` | `Entity not found`        | Should be returned when an entity wasn’t found. e.g. when requesting User #28 and that user has been deleted. |
 | `446` | `Unverified`              | User is not verified.                    |
 | `500` | `Internal server error`   | Should be returned when an internal error has happened.e.g. when trying to add/update records in the database fails. |
+| `502` | `Bad Gateway`             | Should be returned when a necessary third party service is down. |
 | `550` | `Save failed`             | Should be returned when an entity was not successfully saved to the database. Inserts, updates and deletes. |
 
 ## Response
