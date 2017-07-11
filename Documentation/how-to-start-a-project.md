@@ -27,6 +27,10 @@ Our internal template comes with some convenient packages which are used in most
 vapor new my-project-name --template=https://github.com/nodes-vapor/template
 ```
 
+### Deployment
+
+Using the Vapor Cloud CLI, your Vapor project can be deployed to the cloud. See the [Vapor Cloud docs](https://docs.vapor.cloud/) for more information on how to do this.
+
 ## Optional packages
 
 ### CORS
