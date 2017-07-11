@@ -1,119 +1,36 @@
 # How to start a project
 
-## 1. Vapor
+## Prerequisite
+
+Before it makes sense to start a project, please make sure you have the following installed on your machine:
+
+### Vapor
+
+See [Vapor docs](https://docs.vapor.codes) for information on how to set it up. During the beta of Vapor Cloud, you might want to install the beta version of the CLI instead - for more information about this, see the [Vapor Cloud docs](https://docs.vapor.cloud).
+
+### MySQL
+
+For projects using a database, MySQL needs to be installed. This can be done through brew, e.g. `brew install mysql`. See this [guide](https://blog.joefallon.net/2013/10/install-mysql-on-mac-osx-using-homebrew/) for more information.
+
+### Redis
+
+For projects using Redis as a cache, make sure to install this using brew by calling `brew install redis`. See this [guide](https://gist.github.com/nrollr/eb24336b8fb8e7ba5630) for more information.
+
+
+## Getting started
+
+### Vapor
+
+Our internal template comes with some convenient packages which are used in most of our projects. Remember to look at the documentation for the template for further instructions on how to get it up and running.
+
 ```
 vapor new my-project-name --template=https://github.com/nodes-vapor/template
 ```
 
-## 2. Git
-Set up git, add a repository on gitlab and push the initial code
+## Optional packages
 
-## 3. Redis
-Make sure you have Redis installed [Install via Homebrew](https://gist.github.com/nrollr/eb24336b8fb8e7ba5630)
-
-Add dependency
-```swift
-.Package(url: "https://github.com/vapor/redis-provider.git", majorVersion: 1)
-```
-
-```swift
-import VaporRedis
-import Sessions
-try drop.addProvider(VaporRedis.Provider(config: drop.config))
-```
-
-Add `redis.json` config
-```json
-{
-    "address": "127.0.0.1",
-    "port": "6379",
-    "database": 0
-}
-```
-
-Use Redis cache session middleware instead of build in
-Remove the "session" middleware in `droplet.json` and add this in `main.swift`
-```swift
-import Sessions
-
-drop.middleware.append(SessionsMiddleware(sessions: CacheSessions(cache: drop.cache)))
-```
-
-## 4. Crypto
-`crypto.json` config - change hash and chipher key (32 bytes) & iv (8 bytes) -> https://www.random.org/strings/
-```swift
-{
-    "hash": {
-        "method": "sha256",
-        "key": "password"
-    },
-    "cipher": {
-        "method": "chacha20",
-        "key": "passwordpasswordpasswordpassword",
-        "iv": "password"
-    }
-}
-```
-
-## 5. MySQL
-Make sure you have MySQL installed [Install via Homebrew](https://blog.joefallon.net/2013/10/install-mysql-on-mac-osx-using-homebrew/)
-
-Add package
-```swift
-.Package(url: "https://github.com/vapor/mysql-provider.git", majorVersion: 1, minor: 1),
-```
-
-Setup provider
-```swift
-import VaporMySQL
-try drop.addProvider(VaporMySQL.Provider.self)
-```
-
-`Config/mysql.json`
-```swift
-{
-    "host": "127.0.0.1",
-    "user": "root",
-    "password": "secret",
-    "database": "PROJECT_NAME",
-    "encoding": "utf8mb4"
-}
-```
-
-## 6. App configuration 
-Setup `app.json` for each enviroment folder
-
-replace `PROJECT_NAME`
-
-```swift
-{
-    "name": "PROJECT_NAME",
-    "url": "0.0.0.0:8080"
-}
-
-```
-
-## 7. Akira
-Setup `.akira.yml`
-```
-project:
-    name: CHANGE 
-    type: vapor
-prepare:
-- bugsnag
-- mysql
-- vapor_config
-config:
-    database: /Config/mysql.json
-docker_template: "vapor-supervisor"
-slack_channel: "#CHANGE"
-mail:
-  - "CHANGE"
-```
-
-## 8. CORS
-Will the API be used by a webapp (in browser, FE team)?
-Luckily this is integrated in Vapor, just add the middleware
+### CORS
+If the API is going to be used in a web app, consider adding the [CORS middleware](https://docs.vapor.codes/2.0/http/cors/#cors).
 
 ```
 let corsConfiguration = CORSConfiguration(
@@ -127,8 +44,12 @@ Read more: https://github.com/vapor/documentation/blob/master/http/cors.md
 
 Test: http://codepen.io/dennishn/pen/BLbYyJ
 
-## 9. Storage
-https://github.com/nodes-vapor/storage
+
+### Storage
+
+If you need to store files, e.g. images, the [Storage](
+https://github.com/nodes-vapor/storage) package is here to help you:
+
 ```swift
 import Foundation
 
@@ -140,20 +61,3 @@ Storage.cdnPathBuilder = { baseURL, path in
 }
 ```
  Remember to change [PROJECT-NAME]
-
- You can find the default storage configuration .json-file on our internal Gitlab on nodescloud
-
-## 10. Gatekeeper - Enforce https in production (Skip for now 23/2-17)
-https://github.com/nodes-vapor/gatekeeper
-```swift
-import Gatekeeper
-let enforcerMiddleware = SSLEnforcer(error: Abort.badRequest, drop: drop)
-```
-Add that middleware to your routes, and make sure to test it!
-
-## 11. Bugsnag
-https://github.com/nodes-vapor/bugsnag
-```swift
-import Bugsnag
-let bugsnagMiddleware = try BugsnagMiddleware(drop: drop)
-```
