@@ -1,6 +1,6 @@
 # How to start a project
 
-## Prerequisite
+## Prerequisites
 
 Before it makes sense to start a project, please make sure you have the following installed on your machine:
 
