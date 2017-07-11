@@ -19,6 +19,16 @@ For projects using Redis as a cache, make sure to install this using brew by cal
 
 ## Getting started
 
+### Git
+
+Ask your fellow backend developer on how and where to setup your project repo. 
+
+
+### Circle CI
+
+After your repo has been created, make sure to turn off macOS deployment and to set the Linux distribution to Ubuntu 14.04 (Trusty). Ask your fellow backend developer on how to do this. After Circle CI has been setup, make sure to protect the `master` and `develop` branches on your project repo and make sure that Circle CI needs to succeed before PR's can be merged.
+
+
 ### Vapor
 
 Our internal template comes with some convenient packages which are used in most of our projects. Remember to look at the documentation for the template for further instructions on how to get it up and running.
