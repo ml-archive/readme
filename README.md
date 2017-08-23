@@ -17,6 +17,7 @@ Feel free to get in touch or to submit a PR to any of our repos.
 - [Tips and tricks](https://github.com/nodes-vapor/readme/blob/master/Documentation/tips-and-tricks.md)
 - [Push notifications with Urban Airship](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-urban-airship-push.md)
 - [How to setup environment variables](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-setup-environment-variables.md)
+- [Checklist before going live with a project](https://github.com/nodes-vapor/readme/blob/master/Documentation/checklist-before-going-live.md)
 
 ## Configuration
 
