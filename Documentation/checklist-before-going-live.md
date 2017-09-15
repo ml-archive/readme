@@ -12,3 +12,4 @@ When a project is ready to be deployed and go live, there's a couple of things o
 - **Storage**: If file uploads are supported, make sure that the Storage credentials has been correctly added to all environments as environment variables.
 - **Mail**: If your project supports sending mails, make sure all mail related credentials has been setup correctly as environment variables on all environments.
 - **CORS**: If your API is being used in a web app, then strongly consider to add the CORS middleware.
+- **Continuous Integration**: Is your repo on GitHub running correctly with Circle CI? Is your master/develop branches protected?
