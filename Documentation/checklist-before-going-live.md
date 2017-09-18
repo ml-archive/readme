@@ -14,3 +14,4 @@ When a project is ready to be deployed and go live, there's a couple of things o
 - **CORS**: If your API is being used in a web app, then strongly consider to add the CORS middleware.
 - **Continuous Integration**: Is your repo on GitHub running correctly with Circle CI? Is your master/develop branches protected?
 - **Debug logs**: If you have debug logs turned on (e.g. in `fluent.json`) while developing the project, consider turning them off before deploying.
+- **Signers**: Are you using JWT and will be running the project on multiple environments? If so, remember to generate keys for each environment. Consider adding the keys as different config files (opposed to environment variables).
