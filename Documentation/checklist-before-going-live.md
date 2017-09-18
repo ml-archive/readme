@@ -13,3 +13,4 @@ When a project is ready to be deployed and go live, there's a couple of things o
 - **Mail**: If your project supports sending mails, make sure all mail related credentials has been setup correctly as environment variables on all environments.
 - **CORS**: If your API is being used in a web app, then strongly consider to add the CORS middleware.
 - **Continuous Integration**: Is your repo on GitHub running correctly with Circle CI? Is your master/develop branches protected?
+- **Debug logs**: If you have debug logs turned on (e.g. in `fluent.json`) while developing the project, consider turning them off before deploying.
