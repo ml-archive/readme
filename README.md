@@ -2,7 +2,7 @@
 
 # Vapor at Nodes
 
-Welcome to the Vapor team at Nodes' space on GitHub. We ❤️ Vapor. Look below to see what we are working on. Also, checkout our [project board](https://github.com/nodes-vapor/readme/projects/1) for a prioritization on open issues.
+Welcome to the Vapor team at Nodes' space on GitHub. We ❤️ Vapor. Look below to see what we are working on.
 
 Feel free to get in touch or to submit a PR to any of our repos.
 
