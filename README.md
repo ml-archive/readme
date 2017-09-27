@@ -28,24 +28,31 @@ Feel free to get in touch or to submit a PR to any of our repos.
 
 ## Packages
 
-- Date: Use Foundation with https://github.com/nodes-vapor/sugar
-- Curl: Build in Vapor - Wait for Alamo Fire for a more advanced version
-- Cache: Vapor has a redis package, we can consider a cache package like we had, for easier use down the line
-- Queue: https://github.com/BrettRToomey/Jobs
-- Excel/Csv export: Missing!
-- Bugsnag: https://github.com/nodes-vapor/bugsnag
-- Meta: https://github.com/nodes-vapor/meta
-- Admin panel: https://github.com/nodes-vapor/admin-panel
-- Storage: https://github.com/nodes-vapor/storage
-- Push UA: https://github.com/nodes-vapor/push-urban-airship
-- Translate: https://github.com/nodes-vapor/nstack
-- Log: https://github.com/SwiftyBeaver/SwiftyBeaver-Vapor -> Check linux
-- API Auth: https://github.com/nodes-vapor/jwt-keychain
-- Pagination: https://github.com/nodes-vapor/paginator
-- Custom errors: https://github.com/nodes-vapor/error-extended
-- Slugify: https://github.com/nodes-vapor/slugify
-- Data URI: https://github.com/nodes-vapor/data-uri
-- Flash messages: https://github.com/nodes-vapor/flash
-- Template: https://github.com/nodes-vapor/template
-- Model extraction + validation: https://github.com/nodes-vapor/sanitized (or https://github.com/bygri/vapor-forms)
-- Rate limiter/SSL enforcer: https://github.com/nodes-vapor/gatekeeper
+### Made at Nodes
+
+- [Admin Panel](https://github.com/nodes-vapor/admin-panel) ✍️ (note: we're building a new one [here](https://github.com/nodes-vapor/admin-panel-provider))
+- [Admin Panel Nodes SSO](https://github.com/nodes-vapor/admin-panel-nodes-sso) 🔒
+- [JWT Keychain](https://github.com/nodes-vapor/jwt-keychain) ⛓
+- [Template](https://github.com/nodes-vapor/template) 🏎 (note: our old Vapor 1 template can be found [here](https://github.com/nodes-vapor/template-old))
+- [Storage](https://github.com/nodes-vapor/storage) 🗄
+- [Sourcery Templates](https://github.com/nodes-vapor/sourcery-templates) ✨
+- [Sanitizied](https://github.com/nodes-vapor/sanitized)
+- [Meta](https://github.com/nodes-vapor/meta)
+- [Audit](https://github.com/nodes-vapor/audit-provider) 🕵️
+- [Bugsnag](https://github.com/nodes-vapor/bugsnag) 🐛
+- [Slugify](https://github.com/nodes-vapor/slugify)
+- [AWS](https://github.com/nodes-vapor/aws)
+- [Sugar](https://github.com/nodes-vapor/sugar) 🍬
+- [Stacked](https://github.com/nodes-vapor/stacked) 📚
+- [Paginator](https://github.com/nodes-vapor/paginator) 📄
+- [NStack](https://github.com/nodes-vapor/nstack)
+- [UAPusher](https://github.com/nodes-vapor/push-urban-airship) ✉️
+- [Error Extended](https://github.com/nodes-vapor/error-extended)
+- [Gatekeeper](https://github.com/nodes-vapor/gatekeeper) 🔑
+- [DataURI](https://github.com/nodes-vapor/data-uri)
+- [Flash](https://github.com/nodes-vapor/flash) ⚡️
+
+### Made by others
+
+- [Jobs](https://github.com/BrettRToomey/Jobs)
+- [SwiftyBeaver](https://github.com/SwiftyBeaver/SwiftyBeaver-Vapor)
