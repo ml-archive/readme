@@ -33,4 +33,4 @@ While running a migration you won’t see MySQL 5.7 complaining about this, and 
 
 ### How to enable utf8mb4 support on Vapor?
 
-If your project is deployed to Vapor Cloud, then `utf8mb4` will be the default type.
+If your project is deployed to Vapor Cloud, then `utf8mb4` will be the default encoding on `VARCHAR` fields.
