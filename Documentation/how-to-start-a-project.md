@@ -62,16 +62,4 @@ Test: http://codepen.io/dennishn/pen/BLbYyJ
 ### Storage
 
 If you need to store files, e.g. images, the [Storage](
-https://github.com/nodes-vapor/storage) package is here to help you:
-
-```swift
-import Foundation
-
-try drop.addProvider(StorageProvider.self)
-Storage.cdnPathBuilder = { baseURL, path in
-    var joinedPath = (baseURL + path)
-    joinedPath = joinedPath.replacingOccurrences(of: "/[PROJECT-NAME]/images/original/", with: "/image/[PROJECT-NAME]/")    
-    return joinedPath.replacingOccurrences(of: "/[PROJECT-NAME]/data/", with: "/data/[PROJECT-NAME]/")    
-}
-```
- Remember to change [PROJECT-NAME]
+https://github.com/nodes-vapor/storage) package is here to help you.
