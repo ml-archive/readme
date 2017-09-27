@@ -1,5 +1,5 @@
 
-# How to support emojis (UTF8MB4)
+# How to support emojis (utf8mb4)
 
 ### A little background
 
@@ -31,17 +31,6 @@ While running a migration you won’t see MySQL 5.7 complaining about this, and 
     If we really need all 255 characters, we can consider using this innodb setting:
     http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_large_prefix
 
-### How to enable UTF8MB4 support on Vapor?
+### How to enable utf8mb4 support on Vapor?
 
- Go to:
-
- ```
-Config/
-  - mysql.json
-    secrets/
-      - mysql.json
- ```
-
-And replace
-
-`"encoding": "utf8"` by `"encoding": "utf8mb4"`
+If your project is deployed to Vapor Cloud, then `utf8mb4` will be the default type.
