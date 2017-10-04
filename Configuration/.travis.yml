@@ -17,7 +17,7 @@ script:
   - swift build
   - swift build -c release
   - swift package generate-xcodeproj --enable-code-coverage
-  - xcodebuild -scheme Meta -enableCodeCoverage YES test | xcpretty
+  - xcodebuild -scheme ProjectName -enableCodeCoverage YES test | xcpretty
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
