@@ -7,4 +7,4 @@ variable_name:
     warning: 2
 line_length: 80
 disabled_rules:
-  - vertical_whitespace
+  - opening_brace
