@@ -11,7 +11,7 @@ When a project is ready to be deployed and go live, there's a couple of things o
 - **SSO**: If your project includes an admin panel, then make sure to add Nodes SSO as well. Remember to create credentials for the project and make sure that they are added to all environments as environment variables.
 - **Storage**: If file uploads are supported, make sure that the Storage credentials has been correctly added to all environments as environment variables.
 - **Mail**: If your project supports sending mails, make sure all mail related credentials has been setup correctly as environment variables on all environments.
-- **CORS**: If your API is being used in a web app, then strongly consider to add the CORS middleware.
+- **CORS**: The default Nodes template comes with the CORS middleware installed and configured. Consider whether or not you need to limit the domains and/or remove from/add to the list of allowed headers.
 - **Continuous Integration**: Is your repo on GitHub running correctly with Circle CI? Is your master/develop branches protected?
 - **Debug logs**: If you have debug logs turned on (e.g. in `fluent.json`) while developing the project, consider turning them off before deploying.
 - **Signers**: Are you using JWT and will be running the project on multiple environments? If so, remember to generate keys for each environment. Consider adding the keys as different config files (opposed to environment variables).
