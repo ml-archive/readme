@@ -8,3 +8,5 @@ variable_name:
 line_length: 80
 disabled_rules:
   - opening_brace
+colon:
+  flexible_right_spacing: true
