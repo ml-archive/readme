@@ -228,6 +228,7 @@ One of the most important things in an API is how it returns response codes. Eac
 | `403` | `Forbidden`               | Should be returned when an authenticated user is trying to perform an action, which he/her does not permission to. |
 | `404` | `Not found`               | Should be returned when URL is not found. e.g. when route is invalid. And NOT when an entity was not found. |
 | `412` | `Precondition failed`     | Should be returned when validation has failed. Error message should contain which validation rules has failed. |
+| `440` | `No accept header`        | Should be returned when the required “Accept” header is missing from the request. |
 | `500` | `Internal server error`   | Should be returned when an internal error has happened.e.g. when trying to add/update records in the database fails. |
 | `502` | `Bad Gateway`             | Should be returned when a necessary third party service is down. |
 
