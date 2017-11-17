@@ -229,15 +229,8 @@ One of the most important things in an API is how it returns response codes. Eac
 | `404` | `Not found`               | Should be returned when URL is not found. e.g. when route is invalid. And NOT when an entity was not found. |
 | `412` | `Precondition failed`     | Should be returned when validation has failed. Error message should contain which validation rules has failed. |
 | `440` | `No accept header`        | Should be returned when the required “Accept” header is missing from the request. |
-| `441` | `No token was provided`   | Should be returned when a user is trying to request a protected endpoint without a token. |
-| `442` | `Invalid token`           | Should be returned when a user is trying to request a protected endpoint with an invalid token. |
-| `443` | `Token has expired`       | Should be returned when a user is trying to request a protected endpoint with an expired token. |
-| `444` | `Invalid 3rd party token` | Should be returned when a received 3rd party token is either invalid or expired. |
-| `445` | `Entity not found`        | Should be returned when an entity wasn’t found. e.g. when requesting User #28 and that user has been deleted. |
-| `446` | `Unverified`              | User is not verified.                    |
 | `500` | `Internal server error`   | Should be returned when an internal error has happened.e.g. when trying to add/update records in the database fails. |
 | `502` | `Bad Gateway`             | Should be returned when a necessary third party service is down. |
-| `550` | `Save failed`             | Should be returned when an entity was not successfully saved to the database. Inserts, updates and deletes. |
 
 ## Response
 
