@@ -31,7 +31,7 @@ After your repo has been created, make sure to turn off macOS deployment and to 
 
 ### Vapor
 
-Our internal template comes with some convenient packages which are used in most of our projects. Remember to look at the documentation for the template for further instructions on how to get it up and running.
+Our internal template comes with some convenient packages which are used in most of our projects. Remember to look at the [documentation](https://github.com/nodes-vapor/template/blob/master/README.md) for the template for further instructions on how to get it up and running.
 
 ```
 vapor new my-project-name --template=https://github.com/nodes-vapor/template
