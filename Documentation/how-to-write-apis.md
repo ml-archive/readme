@@ -224,6 +224,7 @@ One of the most important things in an API is how it returns response codes. Eac
 | `200` | `OK`                      | Should be returned when a request was successfully processed. e.g. when using `GET`, `PATCH`, `PUT` or `DELETE`. |
 | `201` | `Created`                 | Should be returned every time a record has been added to the database. e.g. when creating a new user or post. |
 | `304` | `Not modified`            | Should be returned when returning a cached response. |
+| `400` | `Bad request`             | Should be returned when the server is unable to process the request in cases not otherwise covered here, eg. missing parameters etc. |
 | `401` | `Unauthorized`            | Should be returned when authentication failed. |
 | `403` | `Forbidden`               | Should be returned when an authenticated user is trying to perform an action, which he/her does not permission to. |
 | `404` | `Not found`               | Should be returned when URL is not found. e.g. when route is invalid. And NOT when an entity was not found. |
