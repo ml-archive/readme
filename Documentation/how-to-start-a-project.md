@@ -26,7 +26,7 @@ Ask your fellow backend developer on how and where to setup your project repo.
 
 ### Circle CI
 
-After your repo has been created, make sure to turn off macOS deployment and to set the Linux distribution to Ubuntu 14.04 (Trusty). Ask your fellow backend developer on how to do this. After Circle CI has been setup, make sure to protect the `master` and `develop` branches on your project repo and make sure that Circle CI needs to succeed before PR's can be merged.
+After Circle CI has been setup, make sure to protect the `master` and `develop` branches on your project repo and make sure that Circle CI needs to succeed before PR's can be merged.
 
 
 ### Vapor
