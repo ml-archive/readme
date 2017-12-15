@@ -22,7 +22,7 @@ Feel free to get in touch or to submit a PR to any of our repos.
 ## Configuration
 
 - [Git ignore](https://github.com/nodes-vapor/readme/blob/master/Configuration/.gitignore)
-- [CircleCI](https://github.com/nodes-vapor/readme/blob/master/Configuration/.circleci/config.yml) (please note the folder structure)
+- [CircleCI](https://github.com/nodes-vapor/readme/tree/master/Configuration/.circleci) (please note the folder structure)
 - [Travis](https://github.com/nodes-vapor/readme/blob/master/Configuration/.travis.yml)
 - [Codecov](https://github.com/nodes-vapor/readme/blob/master/Configuration/.codecov.yml)
 - [Swiftlint](https://github.com/nodes-vapor/readme/blob/master/Configuration/.swiftlint.yml)
