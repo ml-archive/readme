@@ -28,6 +28,11 @@ Feel free to get in touch or to submit a PR to any of our repos.
 - [Swiftlint](https://github.com/nodes-vapor/readme/blob/master/Configuration/.swiftlint.yml)
 - [Codebeat](https://github.com/nodes-vapor/readme/blob/master/Configuration/.codebeatignore)
 
+## Blogging
+
+- [Our blog](https://engineering.nodesagency.com/categories/Vapor/)
+- [Ideas for future posts](https://github.com/nodes-vapor/blog-post-ideas/issues) (please see the readme for more information)
+
 ## Packages
 
 ### Made at Nodes
