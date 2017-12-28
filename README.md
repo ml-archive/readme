@@ -38,7 +38,7 @@ Feel free to get in touch or to submit a PR to any of our repos.
 - [Template](https://github.com/nodes-vapor/template) 🏎 (note: our old Vapor 1 template can be found [here](https://github.com/nodes-vapor/template-old))
 - [Storage](https://github.com/nodes-vapor/storage) 🗄
 - [Sourcery Templates](https://github.com/nodes-vapor/sourcery-templates) ✨
-- [Sanitizied](https://github.com/nodes-vapor/sanitized)
+- [Sanitized](https://github.com/nodes-vapor/sanitized)
 - [Meta](https://github.com/nodes-vapor/meta)
 - [Audit](https://github.com/nodes-vapor/audit-provider) 🕵️
 - [Bugsnag](https://github.com/nodes-vapor/bugsnag) 🐛
