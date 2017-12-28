@@ -32,7 +32,7 @@ Feel free to get in touch or to submit a PR to any of our repos.
 
 ### Made at Nodes
 
-- [Admin Panel](https://github.com/nodes-vapor/admin-panel) ✍️ (note: we're building a new one [here](https://github.com/nodes-vapor/admin-panel-provider))
+- [Admin Panel](https://github.com/nodes-vapor/admin-panel-provider) ✍️ (note: the old one can be found [here](https://github.com/nodes-vapor/admin-panel))
 - [Admin Panel Nodes SSO](https://github.com/nodes-vapor/admin-panel-nodes-sso) 🔑
 - [JWT Keychain](https://github.com/nodes-vapor/jwt-keychain) ⛓
 - [Template](https://github.com/nodes-vapor/template) 🏎 (note: our old Vapor 1 template can be found [here](https://github.com/nodes-vapor/template-old))
