@@ -65,13 +65,17 @@ Environment variables are the ones that specify environment-specific values, e.g
 
 - `host` (e.g. `.vapor.cloud`)
 
-- `baseURL` (e.g. `{{scheme}}://{{appName}}{{host}}:{{port}}`)
+- `baseURL` (`{{scheme}}://{{appName}}{{host}}:{{port}}`)
 
 - `port` (e.g. `443`)
 
-Note how the `baseURL` is being constructed using the other environment variables and using a collection variable called `appName` which will be explained below.
+- `accessToken` (`{{{{appName}}-accessToken}}`)
 
-These environments can be found under the "Team Library" and by looking at the "Environment Templates". We suggest that you add these three templates to your setup and if relevant, feel free to go ahead and add your own local environment if you're running the project on your machine. The only requirement for your local environment is to have a variable called `baseURL` (e.g. `http://0.0.0.0:8080`).
+- `refreshToken` (`{{{{appName}}-refreshToken}}`)
+
+Note how the `baseURL` is being constructed using other environment variables and using a collection variable. `accessToken` and `refreshToken` are also being constructed using a collection variable called `appName` which will be explained below.
+
+These environments can be found under the "Team Library" and by looking at the "Environment Templates". We suggest that you add these three templates to your setup and if relevant, feel free to go ahead and add your own local environment if you're running the project on your machine. The only requirement for your local environment is to have a variable called `baseURL` (e.g. `http://0.0.0.0:8080`), one called `refreshToken` and one called `accessToken`. `accessToken` and `refreshToken`  should just have the same values as the ones coming from any of the templates.
 
 ### Collection variables
 
@@ -80,6 +84,21 @@ Collection variables should be all the values that is relevant for your collecti
 - `appName` (e.g. `my-blog`)
 
 This variable should hold the name of the application name on Vapor Cloud. If the URL for your application on Vapor Cloud is `https://my-blog.vapor.cloud` then `my-blog`  is your `appName` value. Feel free to add any other relevant collection variables when needed.
+
+### Working with access tokens
+
+Most of our APIs will have endpoints which requires a token (either a access token or a refresh token). This could be protected endpoints where a user is required to authenticate before giving access. To make it easier to move between projects and environments, the following code should be added under "Tests" for the relevant endpoints where tokens are being returned:
+
+```javascript
+let json = pm.response.json();
+let accessTokenKey = pm.variables.get("appName") + "-accessToken"
+let refreshTokenKey = pm.variables.get("appName") + "-refreshToken"
+
+pm.environment.set(accessTokenKey, json.accessToken)
+pm.environment.set(refreshTokenKey, json.refreshToken)
+```
+
+This code snippet expects a `accessToken` and a `refreshToken` at the top level of the JSON response of the endpoint. Endpoints which logins a user or creates a user are good examples of endpoints where this might be relevant. Remember to align the code to with what tokens you are expecting (some projects might not be using refresh tokens).
 
 ## How to create endpoint documentation
 
