@@ -35,7 +35,9 @@ At the top level, the folders created should follow the different domains of the
 
 Sometimes, it makes sense to have nested folders to group related endpoints within a specific domain. In the above example, that could be categories for a specific post (e..g `/posts/:id/categories`). In that case, it's fine to have another folder inside Posts that group the endpoints related to categories for a specific post. Remember to keep the top level folder for Categories for any endpoints that are not tied to a specific post.
 
-Endpoints for the different domains should then be created within each top level domain folders. The endpoints should be named to describe their action. Having a reference to the domain in the name of the endpoint can be convenient when having multiple tabs open in the Postman application. Expanding the Posts folder could then have endpoints like:
+Endpoints for the different domains should then be created within each top level domain folder. The endpoints should be named to describe their action. Having a reference to the domain in the name of the endpoint can be convenient when having multiple tabs open in the Postman application. 
+
+Expanding the Posts folder could then have endpoints like:
 
 - All posts
 - Specific post
