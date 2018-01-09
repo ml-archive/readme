@@ -8,16 +8,21 @@ Feel free to get in touch or to submit a PR to any of our repos.
 
 ## Documentation
 
-- [How to write Swift](https://github.com/nodes-vapor/readme/blob/master/Documentation/guide-how-to-write-swift.md)
-- [How to write APIs](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-write-apis.md)
-- [How to start a project](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-start-a-project.md)
-- [How to build a package](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-build-a-package.md)
-- [How to support emojis (utf8mb4)](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-support-emojis.md)
-- [How to create Postman endpoints](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-endpoints.md)
-- [Tips and tricks](https://github.com/nodes-vapor/readme/blob/master/Documentation/tips-and-tricks.md)
-- [Push notifications with Urban Airship](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-urban-airship-push.md)
-- [How to setup environment variables](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-setup-environment-variables.md)
-- [Checklist before going live with a project](https://github.com/nodes-vapor/readme/blob/master/Documentation/checklist-before-going-live.md)
+- Creating a project
+  - [How to start a project](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-start-a-project.md)
+  - [How to build a package](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-build-a-package.md)
+  - [How to setup environment variables](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-setup-environment-variables.md)
+  - [Push notifications with Urban Airship](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-urban-airship-push.md)
+  - [Checklist before going live with a project](https://github.com/nodes-vapor/readme/blob/master/Documentation/checklist-before-going-live.md)
+- How to use Vapor
+  - [How to write Swift](https://github.com/nodes-vapor/readme/blob/master/Documentation/guide-how-to-write-swift.md)
+  - [How to write APIs](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-write-apis.md)
+- Postman
+  - [How to create Postman collections](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-collections.md)
+  - [How to create Postman documentation](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-documentation.md)
+- Misc
+  - [Tips and tricks](https://github.com/nodes-vapor/readme/blob/master/Documentation/tips-and-tricks.md)
+  - [How to support emojis (utf8mb4)](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-support-emojis.md)
 
 ## Configuration
 

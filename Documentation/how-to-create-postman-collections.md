@@ -2,7 +2,7 @@
 
 We use [Postman](https://www.getpostman.com/) heavily at Nodes for tasks like:
 
-- Calling our internal and external APIs to see if they behave as expected
+- Requesting our internal and external APIs to see if they behave as expected
 - Documenting our APIs
 - Writing tests for our APIs
 - Mocking our APIs
@@ -22,6 +22,7 @@ With your new collection created, the next step is to make sure the rest of your
 
 - Team: Can View
 - Individual permissions for each backend developer at Nodes: Can Edit
+- QA Lead: Can Edit
 
 This will allow consumers of the API to read about it as well as trying it out. It will also allow any other backend developer who might work on the project in the future to edit the collection if needed. Remember that you need to be invited to the Nodes team on Postman before you can publish it to the team.
 
@@ -45,7 +46,7 @@ Expanding the Posts folder could then have endpoints like:
 - Update post
 - Delete post
 
-In some cases, it might be convenient to setup endpoints for dealing with a third party API. To keep things separate and to not confuse any consumers of our APIs, a new collection should be created using the same collection name but with a "-backend" suffix to indicate that this collection is to used only by the backend team.
+In some cases, it might be convenient to setup endpoints for dealing with a third party API. To keep things separate and to not confuse any consumers of our APIs, a new collection should be created using the same collection name but with a "-backend" suffix to indicate that this collection is to be used by the backend team only.
 
 ## How to setup variables
 
@@ -100,7 +101,7 @@ pm.environment.set(accessTokenKey, json.accessToken)
 pm.environment.set(refreshTokenKey, json.refreshToken)
 ```
 
-This code snippet expects a `accessToken` and a `refreshToken` at the top level of the JSON response of the endpoint. Endpoints which logins a user or creates a user are good examples of endpoints where this might be relevant. Remember to align the code to with what tokens you are expecting (some projects might not be using refresh tokens).
+This code snippet expects an `accessToken` and a `refreshToken` at the top level of the JSON response of the endpoint. Endpoints which logins a user or creates a user are good examples of endpoints where this might be relevant. Remember to align the code to with what tokens you are expecting (some projects might not be using refresh tokens).
 
 ## How to create endpoint documentation
 
