@@ -104,4 +104,8 @@ This code snippet expects a `accessToken` and a `refreshToken` at the top level 
 
 ## How to create endpoint documentation
 
-Postman documentation is covered in it's own file [here](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-documentation.md).
+Postman documentation is covered in its own file [here](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-documentation.md).
+
+## How to create API acceptance tests
+
+Postman API acceptance tests is convered in its own file [here](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-tests.md).
