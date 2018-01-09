@@ -1,10 +1,10 @@
-# How to create Postman endpoints
+# How to create Postman documentation
 
 Below is an example for how to write Postman documentation. Looking at the raw representation of this file, one should be able to copy/paste this into the documentation for an endpoint. If a section is not relevant for a particular endpoint, please fill in n/a (to make it more clear that it was not just forgotten).
 
 _Please note that each section in this example might not make sense for a real endpoint, but its purpose is just to give guidance on how to fill out each section._
 
-## Search users
+---
 
 Getting a list of users optionally filtered by type.
 
