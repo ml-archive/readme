@@ -17,6 +17,7 @@ Feel free to get in touch or to submit a PR to any of our repos.
 - How to use Vapor
   - [How to write Swift](https://github.com/nodes-vapor/readme/blob/master/Documentation/guide-how-to-write-swift.md)
   - [How to write APIs](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-write-apis.md)
+  - [How to report errors to Bugsnag](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-report-to-bugsnag.md)
 - Postman
   - [How to create Postman collections](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-collections.md)
   - [How to create Postman documentation](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-documentation.md)
