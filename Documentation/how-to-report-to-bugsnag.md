@@ -26,6 +26,6 @@ Using our [Bugsnag package](https://github.com/nodes-vapor/bugsnag), there's bas
 
 What you decide to include in the report is crucial to be able to debug later if errors starts to get reported. Here's some central things to consider when constructing your `Abort` error:
 
-- `status`: Have a look at [our API guide](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-write-apis.md#response-codes) to see a list of our most commonly used status code.
-- `reson`: Make sure to have a describing error message. Consider making the message general for the type of error and then use the `metadata` part for any dynamic values.
+- `status`: Have a look at [our API guide](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-write-apis.md#response-codes) to see a list of our most commonly used status codes.
+- `reson`: Make sure to have a descriptive error message. Consider making the message general for the type of error and then use the `metadata` part for any dynamic values.
 - `metadata`: Any non-sensitive information should be added to this dictionary (do not include any passwords etc.). A common approach is to include id's for each model item that is relevant for the error that occurred. If an error occurred bassed on a request, that request will automatically be included in the report. Remember to [configure Bugsnag](https://github.com/nodes-vapor/bugsnag#metadata) to filter out any sensitive information from the request.
