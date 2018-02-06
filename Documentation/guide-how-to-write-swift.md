@@ -48,7 +48,7 @@ Descriptive and consistent naming makes software easier to read and understand. 
 ## Spacing
 
 - Indent using 4 spaces. (Xcode pref. -> Text Editing -> Indentation and then make sure it is set to "Spaces" and width = 4.)
-- Long lines should be wrapped at around **80** characters. A hard limit is intentionally not specified. (Xcode pref -> Text Editing -> Page guide at column 80)
+- Long lines should be wrapped at **100** characters. (Xcode pref -> Text Editing -> Page guide at column 100.)
 - Avoid trailing whitespaces at the ends of lines. (Xcode pref. -> Text Editing and make sure "Automatically trim trail…" and "Including whitespace-only lines" checked.)
 - Add a single newline character at the end of each file. (Xcode will do this initially for you.)
 
