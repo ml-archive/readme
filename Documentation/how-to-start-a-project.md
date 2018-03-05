@@ -61,9 +61,9 @@ After the repository has been created and Circle CI has been setup, go to the "S
 
 ### Circle CI
 
-After the repository has been created on GitHub, the project can be added to Circle CI. Make sure you're on the nodes-projects organization (on Circle CI), hit "Projects" and then "Add Project". On the following page, select "Linux", "2.0" and hit "Start building" (these settings doesn't matter as we will control the settings through the config file).
+After the repository has been created on GitHub, the project can be added to Circle CI. Make sure you're on the nodes-projects organization (on Circle CI), hit "Add Projects". On the following page search for your repository name and hit "Set Up Project". On the next page choose "Linux" under "Operating "System" and hit "Start building" at the bottom of the site.
 
-Last step is to generate a token for the Circle CI badge for the readme. Select your newly created project on Circle CI and hit settings (the gear icon), go to "API Permissions" and hit "Create Token". Choose "Status" as scope and write "Badge" as the token label. This generated token kan now then be used for the Circle CI badge for the readme by inserting it into the url at the right spot:
+Last step is to generate a token for the Circle CI badge for the readme. Select your newly created project on Circle CI and hit settings (the gear icon), go to "API Permissions" and hit "Create Token". Choose "Status" as scope and write "Badge" as the token label. This generated token can now then be used for the Circle CI badge for the readme by inserting it into the url at the right spot:
 
 ```
 [![Circle CI](https://circleci.com/gh/nodes-projects/my-project/tree/master.svg?style=shield&circle-token=my-token)](https://circleci.com/gh/nodes-projects/my-project)
