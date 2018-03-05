@@ -51,7 +51,7 @@ See some of the other projects on the nodes-projects organization for comparison
 
 #### Branches
 
-After the repository has been created and Circle CI has been setup, go to the "Settings" part of the repository and hit "Branches". In here you want to make sure that `develop` is set as the default branch and that `master` and `develop` are added as protected branches. For each protected branch make sure that the following options are checked:
+After the repository has been created and Circle CI (see [Circle CI](#circle-ci) section) has been setup, go to the "Settings" part of the repository and hit "Branches". In here you want to make sure that `develop` is set as the default branch and that `master` and `develop` are added as protected branches. For each protected branch make sure that the following options are checked:
 
 - [x] "Protect this branch"
 - [x] "Require status checks to pass before merging"
