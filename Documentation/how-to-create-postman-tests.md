@@ -1,6 +1,6 @@
 # How to create Postman API acceptance tests
 
-Writing API acceptance tests is a great way to write system tests while hitting real environments. These tests can be run on your local machine as well as in Vapor Cloud (please consider what environments you're using and why). If it's your first time looking into testing with Postman, then cosider reading through some of these resources:
+Writing API acceptance tests is a great way to write system tests while hitting real environments. These tests can be run on your local machine as well as in Vapor Cloud (please consider what environments you're using and why). If it's your first time looking into testing with Postman, then consider reading through some of these resources:
 
 - [Writing tests in Postman](http://blog.getpostman.com/2017/10/25/writing-tests-in-postman/)
 - [API testing tips from a Postman professional](http://blog.getpostman.com/2017/07/28/api-testing-tips-from-a-postman-professional/)
@@ -11,7 +11,7 @@ Writing API acceptance tests is a great way to write system tests while hitting 
 
 To keep things separate, then the tests for your API collection should be created in a different collection. If your API collection is named `my-project` then the corresponding test collection should be named `my-project-tests`. Remember to share this collection the same way you would share a normal API collection.
 
-Inside of your test collection, you will then have endpoints for the endpoints you want to test. The order in which you arrange your folders and endpoints (from top to bottom) is **important** since this will be the order in which the Postman Runner will run your tests. Postman Runner is a tool for running all of your tests in a collection.
+Inside your test collection you will have endpoints for the endpoints you want to test. The order in which you arrange your folders and endpoints (from top to bottom) is **important** since this will be the order in which the Postman Runner will run your tests. Postman Runner is a tool for running all of your tests in a collection.
 
 As with your normal API collection, top level folders should follow the domains of your project:
 
@@ -116,7 +116,7 @@ The first test ensures that the response code we're giving back from the endpoin
 
 #### Testing that the response body is correct
 
-Most of the time, we're mostly interested in the structure of the returned JSON and not each individual value. Instead of writing tests that checks to see if each expected key has the expected value, we can use something called [JSON schemas](https://spacetelescope.github.io/understanding-json-schema/about.html) to define how we expect the structure of a response to be and [Tiny Validator](https://geraintluff.github.io/tv4/) to actually validate our schemas.
+Most of the time, we're interested in the structure of the returned JSON and not each individual value. Instead of writing tests that check to see if each expected key has the expected value, we can use something called [JSON schemas](https://spacetelescope.github.io/understanding-json-schema/about.html) to define how we expect the structure of a response to be and [Tiny Validator](https://geraintluff.github.io/tv4/) to actually validate our schemas.
 
 In order to test using JSON schemas, we first need to define our schemas:
 
@@ -222,10 +222,10 @@ It is recommended that schemas are being defined in one place, which should be t
 
 ## Running your tests
 
-With the tests in place, it's time to actually run them. To run the tests while writing them, we recommend simply requesting the endpoint through Postman. As soon as endpoints should be run all together, the Postman Runner is more convenient. Inside Postman, click "Runner" at the top left corner to bring up a new window with the runner. To start your tests, here's the settings you should consider:
+With the tests in place, it's time to actually run them. To run the tests while writing them, we recommend simply requesting the endpoint through Postman. As soon as endpoints should be run all together, the Postman Runner is more convenient. Inside Postman, click "Runner" at the top left corner to bring up a new window with the runner. To start your tests, here are the settings you should consider:
 
-- Collection: This should be your test collection (e.g. `my-project-tests`)
-- Environment: The environement you want to run your tests against.
+- Collection: This should be your test collection (e.g. `my-project-tests`).
+- Environment: The environment you want to run your tests against.
 - Iterations: The number of iterations you want to run. 1 should be fine for most projects.
 - Delay: The delay between each request. 0 should fine for most projects.
 - Log Responses: This tells whether or not Postman Runner should output the request/response of each endpoint in the console.
