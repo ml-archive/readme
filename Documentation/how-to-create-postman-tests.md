@@ -234,3 +234,4 @@ With the tests in place, it's time to actually run them. To run the tests while 
 
 With that configured, go ahead and click the "Run my-project-tests". This will start the runner which will go through each endpoint in the collection in the order they are arranged from top to bottom. For each test, the runner will output whether or it succeeded or failed.
 
+One thing to keep in mind when running your tests is that some tests might add data to your database which might not be deleted automatically afterwards (depending on your tests). This might be fine in some cases on test environments and in other cases it might be necessary to do some manual deletion afterwards.
