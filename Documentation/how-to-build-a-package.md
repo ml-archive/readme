@@ -25,7 +25,7 @@ let package = Package(
     name: "MyPackage",
     dependencies: [
         // Add dependencies
-        .package(url: "https://github.com/vapor/mongo-provider.git", .upToNextMajor(from: 2)),                      
+        .package(url: "https://github.com/vapor/vapor.git", .upToNextMajor(from: 1)),                      
     ]
 )
 ```
