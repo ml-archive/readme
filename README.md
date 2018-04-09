@@ -24,6 +24,7 @@ Feel free to get in touch or to submit a PR to any of our repos.
 - Misc
   - [Tips and tricks](https://github.com/nodes-vapor/readme/blob/master/Documentation/tips-and-tricks.md)
   - [How to support emojis (utf8mb4)](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-support-emojis.md)
+  - [How to create an entity relationship diagram](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-an-erd.md)
 
 ## Configuration
 
