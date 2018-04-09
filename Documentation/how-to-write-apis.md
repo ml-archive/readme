@@ -221,16 +221,16 @@ One of the most important things in an API is how it returns response codes. Eac
 
 | Code  | Title                     | Description                              |
 | ----- | ------------------------- | ---------------------------------------- |
-| `200` | `OK`                      | Should be returned when a request was successfully processed. e.g. when using `GET`, `PATCH`, `PUT` or `DELETE`. |
-| `201` | `Created`                 | Should be returned every time a record has been added to the database. e.g. when creating a new user or post. |
+| `200` | `OK`                      | Should be returned when a request was successfully processed (e.g. when using `GET`, `PATCH`, `PUT` or `DELETE`). |
+| `201` | `Created`                 | Should be returned every time a record has been added to the database (e.g. when creating a new user or post). |
 | `304` | `Not modified`            | Should be returned when returning a cached response. |
-| `400` | `Bad request`             | Should be returned when the server is unable to process the request in cases not otherwise covered here, eg. missing parameters etc. |
+| `400` | `Bad request`             | Should be returned when the request could not be understood (e.g. invalid syntax). |
 | `401` | `Unauthorized`            | Should be returned when authentication failed. |
-| `403` | `Forbidden`               | Should be returned when an authenticated user is trying to perform an action, which he/her does not permission to. |
-| `404` | `Not found`               | Should be returned when URL is not found. e.g. when route is invalid. And NOT when an entity was not found. |
-| `412` | `Precondition failed`     | Should be returned when validation has failed. Error message should contain which validation rules has failed. |
+| `403` | `Forbidden`               | Should be returned when an authenticated user is trying to perform an action, which he/she does not have permission to. |
+| `404` | `Not found`               | Should be returned when URL or entity is not found. |
 | `440` | `No accept header`        | Should be returned when the required “Accept” header is missing from the request. |
-| `500` | `Internal server error`   | Should be returned when an internal error has happened.e.g. when trying to add/update records in the database fails. |
+| `422` | `Unprocessable entity`    | Should be returned whenever there is something wrong with the request (e.g. missing parameters, validation errors) even though the syntax is correct (ie. `400` is not warranted). |
+| `500` | `Internal server error`   | Should be returned when an internal error has happened (e.g. when trying to add/update records in the database fails). |
 | `502` | `Bad Gateway`             | Should be returned when a necessary third party service is down. |
 
 ## Response
