@@ -14,6 +14,7 @@ Feel free to get in touch or to submit a PR to any of our repos.
   - [How to setup environment variables](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-setup-environment-variables.md)
   - [Push notifications with Urban Airship](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-urban-airship-push.md)
   - [Checklist before going live with a project](https://github.com/nodes-vapor/readme/blob/master/Documentation/checklist-before-going-live.md)
+  - [How to release a version](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-release-a-version.md)
 - How to use Vapor
   - [How to write Swift](https://github.com/nodes-vapor/readme/blob/master/Documentation/guide-how-to-write-swift.md)
   - [How to write APIs](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-write-apis.md)
