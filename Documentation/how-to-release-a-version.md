@@ -4,7 +4,7 @@ When we release a package, we try to align the format and naming of these releas
 
 ## Tagging a version
 
-We use semantic versioning for tagging our releases. See the [official docs](https://semver.org/) for more information. Unless we have branches that points to different versions of e.g. Vapor, we usually tag from the `master` branch. If the version is not stable yet (e.g. a beta release) we mark it as a "Pre-release".
+We use semantic versioning for tagging our releases. See the [official docs](https://semver.org/) for more information. Unless we have branches that point to different versions of e.g. Vapor, we usually tag from the `master` branch. If the version is not stable yet (e.g. a beta release) we mark it as a "Pre-release".
 
 ## Creating release notes
 
