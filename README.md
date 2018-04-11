@@ -22,6 +22,7 @@ Feel free to get in touch or to submit a PR to any of our repos.
 - Postman
   - [How to create Postman collections](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-collections.md)
   - [How to create Postman documentation](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-documentation.md)
+  - [How to create Postman API acceptance tests](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-tests.md)
 - Misc
   - [Tips and tricks](https://github.com/nodes-vapor/readme/blob/master/Documentation/tips-and-tricks.md)
   - [How to support emojis (utf8mb4)](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-support-emojis.md)
