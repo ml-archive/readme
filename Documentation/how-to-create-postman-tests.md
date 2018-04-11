@@ -9,7 +9,7 @@ Writing API acceptance tests is a great way to write system tests while hitting 
 
 ## Creating a test collection
 
-To keep things separate, then the tests for your API collection should be created in a different collection. If your API collection is named `my-project` then the corresponding test collection should be named `my-project-tests`. Remember to share this collection the same way you would share a normal API collection.
+To keep things separate, the tests for your API collection should be created in a different collection. If your API collection is named `my-project` then the corresponding test collection should be named `my-project-tests`. Remember to share this collection the same way you would share a normal API collection.
 
 Inside your test collection you will have endpoints for the endpoints you want to test. The order in which you arrange your folders and endpoints (from top to bottom) is **important** since this will be the order in which the Postman Runner will run your tests. Postman Runner is a tool for running all of your tests in a collection.
 
@@ -39,11 +39,9 @@ Usually you will want to setup variables that can be used across your tests. The
 pm.globals.set("my-project_tests_email", "postman-test-user@nodes.dk");
 
 // Variable with json
-pm.globals.set("my-project_tests_json", JSON.stringify(
-	{
-      "foo": "bar"
-	}
-));
+pm.globals.set("my-project_tests_json", JSON.stringify({
+    "foo": "bar"
+}));
 ```
 
 To retrieve these variables you can do the following:
@@ -68,7 +66,7 @@ Since most of these variables will be used throughout the tests, it makes sense 
 
 ### Global tests
 
-Some tests are relevant for all endpoints in our test collection and to avoid having to add them to every single endpoint, these can be setup once and then run automatically for each endpoint in the collection. To do this, edit the collection and hit the "Tests" pane. Here's two examples of tests that could go in here:
+Some tests are relevant for all endpoints in our test collection and to avoid having to add them to every single endpoint, these can be set up once and then run automatically for each endpoint in the collection. To do this, edit the collection and hit the "Tests" pane. Here's two examples of tests that could go in here:
 
 ```javascript
 // Response time tests
@@ -123,26 +121,26 @@ In order to test using JSON schemas, we first need to define our schemas:
 ```javascript
 const post = {
     "type": "object",
-	"properties": {
-		"id": {
-			"type": "number"
-		},
-		"userId": {
-			"type": "number"
-		},
-		"title": {
-			"type": "string"
-		},
-		"body": {
-			"type": ["string", "null"]
-		},
-		"createdAt": {
-			"type": "string"
-		},
-		"updatedAt": {
-			"type": "string"
-		}
-	}
+    "properties": {
+        "id": {
+            "type": "number"
+        },
+        "userId": {
+            "type": "number"
+        },
+        "title": {
+            "type": "string"
+        },
+        "body": {
+            "type": ["string", "null"]
+        },
+        "createdAt": {
+            "type": "string"
+        },
+        "updatedAt": {
+            "type": "string"
+        }
+    }
 };
 ```
 
@@ -156,39 +154,39 @@ pm.globals.set("my-project_tests_schema_pagination", JSON.stringify({
         "meta": {
             "type": "object",
             "properties": {
-            	"paginator": {
-            		"type": "object",
-            		"properties": {
-            			"total": {
-            				"type": "number"
-            			},
-            			"perPage": {
-            				"type": "number"
-            			},
-            			"totalPages": {
-            				"type": "number"
-            			},
-            			"currentPage": {
-            				"type": "number"
-            			},
-            			"queries": {
-            				"type": ["string", "null"]
-            			},
-            			"links": {
-            				"type": "object",
-            				"properties": {
-            					"next": {
-            						"type": ["string", "null"]
-            					},
-            					"previous": {
-            						"type": ["string", "null"]
-            					}
-            				},
-            				"minProperties": 2
-            			}
-            		},
-            		"minProperties": 6
-            	}
+                "paginator": {
+            	    "type": "object",
+                    "properties": {
+                        "total": {
+                            "type": "number"
+                        },
+                        "perPage": {
+                            "type": "number"
+                        },
+                        "totalPages": {
+                            "type": "number"
+                        },
+                        "currentPage": {
+                            "type": "number"
+                        },
+                        "queries": {
+                            "type": ["string", "null"]
+                        },
+                        "links": {
+                            "type": "object",
+                            "properties": {
+                                "next": {
+                                    "type": ["string", "null"]
+                                },
+                                "previous": {
+                                    "type": ["string", "null"]
+                                }
+                            },
+                            "minProperties": 2
+                        }
+                    },
+                    "minProperties": 6
+                }
             },
             "minProperties": 1
         },
@@ -204,9 +202,9 @@ Note how this pagination schema is saved directly as a global variable. We can t
 
 ```Javascript
 pm.globals.set("my-project_tests_schema_post", JSON.stringify({
-	"title": "Post",
-	post,
-	"minProperties": 12
+    "title": "Post",
+    post,
+    "minProperties": 12
 }));
 
 pm.globals.set("my-project_tests_schema_post_list", JSON.stringify({
@@ -235,3 +233,5 @@ With the tests in place, it's time to actually run them. To run the tests while 
 With that configured, go ahead and click the "Run my-project-tests". This will start the runner which will go through each endpoint in the collection in the order they are arranged from top to bottom. For each test, the runner will output whether or it succeeded or failed.
 
 One thing to keep in mind when running your tests is that some tests might add data to your database which might not be deleted automatically afterwards (depending on your tests). This might be fine in some cases on test environments and in other cases it might be necessary to do some manual deletion afterwards.
+
+Last thing is to be pragmatic. Consider what code you're testing and if it makes sense to have API acceptance tests for certain endpoints. There might be endpoints which are difficult or impossible to test, for example endpoints that requires acting on an email before proceeding during a sign up.
