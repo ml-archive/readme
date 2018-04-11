@@ -14,9 +14,11 @@ Feel free to get in touch or to submit a PR to any of our repos.
   - [How to setup environment variables](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-setup-environment-variables.md)
   - [Push notifications with Urban Airship](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-urban-airship-push.md)
   - [Checklist before going live with a project](https://github.com/nodes-vapor/readme/blob/master/Documentation/checklist-before-going-live.md)
+  - [How to release a version](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-release-a-version.md)
 - How to use Vapor
   - [How to write Swift](https://github.com/nodes-vapor/readme/blob/master/Documentation/guide-how-to-write-swift.md)
   - [How to write APIs](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-write-apis.md)
+  - [How to report errors to Bugsnag](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-report-to-bugsnag.md)
 - Postman
   - [How to create Postman collections](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-collections.md)
   - [How to create Postman documentation](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-documentation.md)
@@ -24,6 +26,7 @@ Feel free to get in touch or to submit a PR to any of our repos.
 - Misc
   - [Tips and tricks](https://github.com/nodes-vapor/readme/blob/master/Documentation/tips-and-tricks.md)
   - [How to support emojis (utf8mb4)](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-support-emojis.md)
+  - [How to create an entity relationship diagram](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-an-erd.md)
 
 ## Configuration
 
@@ -64,6 +67,7 @@ Feel free to get in touch or to submit a PR to any of our repos.
 - [Gatekeeper](https://github.com/nodes-vapor/gatekeeper) 👮
 - [DataURI](https://github.com/nodes-vapor/data-uri)
 - [Flash](https://github.com/nodes-vapor/flash) ⚡️
+- [Dockerfiles](https://github.com/nodes-vapor/dockerfiles) 🐳
 
 ### Made by others
 

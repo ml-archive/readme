@@ -18,7 +18,7 @@ URL: `/api/users/:id`
 
 `Authorization` (`String`) **required**: Access token (bearer format).
 
-`N-Meta` **required**: N-Meta header.
+`N-Meta` (`String`) **required**: N-Meta header.
 
 ### URL Parameters
 

@@ -2,7 +2,7 @@ version: 2
 jobs:
   Linux:
     docker:
-      - image: brettrtoomey/vapor1-ci:0.0.1
+      - image: brettrtoomey/vapor1-ci:0.0.2
     steps:
       - checkout
       - restore_cache:

@@ -25,7 +25,7 @@ jobs:
             - .build
   Linux:
     docker:
-      - image: brettrtoomey/vapor-ci:0.0.1
+      - image: brettrtoomey/vapor-ci:0.0.2
     steps:
       - checkout
       - restore_cache:
