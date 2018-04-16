@@ -1,10 +1,10 @@
 # How to use a proxy
 
-In some cases you might need to use a proxy for performing requests with your Vapor client, for example if a certain IP is whitelisted when reaching a third party integration. It's not straightforward to set this up and hopefully in the future, this will be a bit more simple and aligned.
+In some cases you might need to use a proxy for performing requests with your Vapor client, for example if a certain IP is whitelisted when reaching a third party integration. It's not straightforward to set this up and hopefully in the future, this will be a bit simpler and more aligned.
 
 ## Without TLS (using `http`)
 
-If there's no requirements for using `https`, a proxy can be defined in Vapor 2 as described in the [official docs](https://docs.vapor.codes/2.0/http/client/#proxy).
+If there are no requirements for using `https`, a proxy can be defined in Vapor 2 as described in the [official docs](https://docs.vapor.codes/2.0/http/client/#proxy).
 
 ## With TLS (using `https`)
 
