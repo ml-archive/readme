@@ -8,26 +8,30 @@ Feel free to get in touch or to submit a PR to any of our repos.
 
 ## Documentation
 
-- Creating a project
+- **Creating a project**
   - [How to start a project](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-start-a-project.md)
   - [How to build a package](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-build-a-package.md)
-  - [How to setup environment variables](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-setup-environment-variables.md)
-  - [Push notifications with Urban Airship](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-urban-airship-push.md)
-  - [Checklist before going live with a project](https://github.com/nodes-vapor/readme/blob/master/Documentation/checklist-before-going-live.md)
-  - [How to release a version](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-release-a-version.md)
-- How to use Vapor
+- **Syntax, semantics and structure**
   - [How to write Swift](https://github.com/nodes-vapor/readme/blob/master/Documentation/guide-how-to-write-swift.md)
   - [How to write APIs](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-write-apis.md)
+- **Releasing**
+  - [How to release a version](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-release-a-version.md)
+  - [Checklist before going live with a project](https://github.com/nodes-vapor/readme/blob/master/Documentation/checklist-before-going-live.md)
+- **Database**
+  - [How to create an entity relationship diagram](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-an-erd.md)
+  - [How to support emojis (utf8mb4)](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-support-emojis.md)
+- **Hosting**
+  - [How to setup environment variables](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-setup-environment-variables.md)
+- **Third party integrations**
+  - [Push notifications with Urban Airship](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-urban-airship-push.md)
   - [How to report errors to Bugsnag](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-report-to-bugsnag.md)
-  - [How to use a proxy](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-use-a-proxy.md)
-- Postman
+- **Postman**
   - [How to create Postman collections](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-collections.md)
   - [How to create Postman documentation](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-documentation.md)
   - [How to create Postman API acceptance tests](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-tests.md)
-- Misc
+- **Misc**
   - [Tips and tricks](https://github.com/nodes-vapor/readme/blob/master/Documentation/tips-and-tricks.md)
-  - [How to support emojis (utf8mb4)](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-support-emojis.md)
-  - [How to create an entity relationship diagram](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-an-erd.md)
+  - [How to use a proxy](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-use-a-proxy.md)
 
 ## Configuration
 
