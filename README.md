@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/nodes-vapor/readme/master/Assets/nodeslogo.png" width="90"/> <img src="https://raw.githubusercontent.com/nodes-vapor/readme/master/Assets/vaporlogo.png" width="100"/>
+<img src="https://raw.githubusercontent.com/nodes-vapor/readme/master/Assets/nodeslogo.png" width="100"/> <img src="https://raw.githubusercontent.com/nodes-vapor/readme/master/Assets/vaporlogo.png" width="100"/>
 
 # Vapor at Nodes
 
