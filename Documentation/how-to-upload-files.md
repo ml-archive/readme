@@ -15,6 +15,8 @@ Our general rule of thumb on how big files we're allowing in a "traditional" fil
 
 Our preferred way of uploading files using our APIs is to send the file in a base64 encoded format in a JSON payload. This allows us to have a consistent API and since the size of the files our apps should be sending using the API are relatively small, then we can accept the overhead in using this approach. Once received on the backend, the file should be uploaded to S3.
 
+Instead of base64 json, Multipart can also be used for file upload to webserver
+
 ### Web (e.g. Admin Panel)
 
 Our preferred way of upload files on the web, e.g. in our Admin Panel or through a SPA, is to use a multipart form. Once received on the backend, the file should be uploaded to S3.
@@ -22,6 +24,8 @@ Our preferred way of upload files on the web, e.g. in our Admin Panel or through
 ## Handling large files
 
 Often we have to deal with files that are larger than the suggested file sizes for "traditional" file uploads, and therefore the following approach is our recommendation.
+
+Get a project specific s3 bucket setup.
 
 ### Mobile
 
@@ -33,7 +37,19 @@ Similar to handling large files in mobile apps, our preferred way of uploading l
 
 ## Serving files
 
-Every file uploaded to S3 should be served using a CDN. The CDN will allow frontends to do cropping and resizing using query parameters.
+### Public files
+
+Every `public` file uploaded to S3 should be served using a CDN. The CDN will allow frontends to do cropping and resizing using query parameters.
+
+Either backend can move the files into the project S3 with CDN, or a new CDN can be setup for the bucket (eg: imgix)
+
+### Private files
+
+It's important `private` files are never public or cached on CDNs. We have few approaches to this
+
+1) NStack, if the files needs auth or password protection. This could be a very simple solution
+2) Private S3 bucket and files are server by backend. There is features to stream files from S3 as a response
+
 
 ## Processing files
 
