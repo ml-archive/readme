@@ -15,7 +15,7 @@ Our general rule of thumb on how big files we're allowing in a "traditional" fil
 
 Our preferred way of uploading files using our APIs is to send the file in a base64 encoded format in a JSON payload. This allows us to have a consistent API and since the size of the files our apps should be sending using the API are relatively small, then we can accept the overhead in using this approach. Once received on the backend, the file should be uploaded to S3.
 
-Instead of base64 json, Multipart can also be used for file upload to webserver
+Instead of base64 json, Multipart can also be used for file upload to webserver.
 
 ### Web (e.g. Admin Panel)
 
@@ -25,11 +25,11 @@ Our preferred way of upload files on the web, e.g. in our Admin Panel or through
 
 Often we have to deal with files that are larger than the suggested file sizes for "traditional" file uploads, and therefore the following approach is our recommendation.
 
-Get a project specific s3 bucket setup.
+Get a project-specific s3 bucket setup.
 
 ### Mobile
 
-If the mobile apps has to upload large files, then our preferred way of doing it, is to have the apps upload directly to S3 and afterwards submitting the path to the file to the backend. The apps can use native SDKs for assisting in uploading the files.
+If the mobile apps have to upload large files, then our preferred way of doing it is to have the apps upload directly to S3 and afterwards submitting the path to the file to the backend. The apps can use native SDKs for assisting in uploading the files.
 
 ### Web (e.g. Admin Panel)
 
@@ -41,16 +41,15 @@ Similar to handling large files in mobile apps, our preferred way of uploading l
 
 Every `public` file uploaded to S3 should be served using a CDN. The CDN will allow frontends to do cropping and resizing using query parameters.
 
-Either backend can move the files into the project S3 with CDN, or a new CDN can be setup for the bucket (eg: imgix)
+Either the backend can move the files into the project S3 with CDN, or a new CDN can be set up for the bucket (eg: imgix).
 
 ### Private files
 
-It's important `private` files are never public or cached on CDNs. We have few approaches to this
+It's important `private` files are never public or cached on CDNs. We have few approaches to this:
 
-1) NStack, if the files needs auth or password protection. This could be a very simple solution
-2) Private S3 bucket and files are served by backend. There is features to stream files from S3 as a response
-
+1) NStack, if the files needs auth or password protection. This could be a very simple solution.
+2) Private S3 bucket and files are served by backend. It is possible to stream files from S3 as a response.
 
 ## Processing files
 
-Processing that takes longer time than a request to respond, should be offloaded into a queue. If a user needs to be notified, an email can be sent out. Remember to think about the amount of memory that is being used in the queue and consider if chunking is possible.
+Processing that takes longer time than a request to respond should be offloaded into a queue. If a user needs to be notified, an email can be sent out. Remember to think about the amount of memory that is being used in the queue and consider if chunking is possible.
