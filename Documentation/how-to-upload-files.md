@@ -48,7 +48,7 @@ Either backend can move the files into the project S3 with CDN, or a new CDN can
 It's important `private` files are never public or cached on CDNs. We have few approaches to this
 
 1) NStack, if the files needs auth or password protection. This could be a very simple solution
-2) Private S3 bucket and files are server by backend. There is features to stream files from S3 as a response
+2) Private S3 bucket and files are served by backend. There is features to stream files from S3 as a response
 
 
 ## Processing files
