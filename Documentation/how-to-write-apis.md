@@ -244,7 +244,7 @@ Generally we have a few rules the response has to follow:
   - Empty key: Return null or unset the key.
 - Consistency of key types. e.g. always return IDs as an integer in all endpoints.
 - Date/timestamps should always be returned with a time zone.
-- Collections should be returned in a key (e.g. `data`).
+- Content (being a single object or a collection) should be returned in a key (e.g. `data`).
 - Pagination data should be returned in a `meta` key.
 - Endpoints should always return a JSON payload.
   - When an endpoint doesn't have meaningful data to return (e.g. when deleting something), use a `status` key to communicate the status of the endpoint.
@@ -281,11 +281,13 @@ Just to round it all off, here’s a few examples of how our response will retur
 
 ```
 {
-    "id": 1,
-    "name": "Shane Berry",
-    "email": "shane@berry.com"
-    "created_at": "2015-03-02T12:59:02+0100",
-    "updated_at": "2015-03-04T15:50:40+0100"
+    "data": {
+        "id": 1,
+        "name": "Shane Berry",
+        "email": "shane@berry.com"
+        "created_at": "2015-03-02T12:59:02+0100",
+        "updated_at": "2015-03-04T15:50:40+0100"
+    }
 }
 ```
 
