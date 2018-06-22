@@ -322,42 +322,28 @@ This can be very time consuming and often require a full activity / notification
 
 Use the +1 value, which will increase the counter by one in ios. And when you open to the app / specific view, you clear the count
 
-#### iOS
-
-Inside the apns object, set the key "badge": count or +1
-
-```json
-{
-  "payload":{
-    "aps":{
-      "alert":null,
-      "sound":null,
-      "content-available":0,
-      "badge": 1,
-      "header":{
-        "apns-priority":10
-      }
-    }
-  }
-}
-
+PHP: Android, there is no build in badge count, just add it to payload
+```php
+$message = $message->withData([
+    'badge' => 45,
+]);
  ```
-
-#### Android
-
-Add it to payload. 
-Note: this is not native Android!
-
-```json
-"notification": {
- "android": {
-   "extra": {
-      "badge":"+1"
-   }
- }
-}
-```
-
+ 
+PHP: iOS
+```php
+ ->withApnsConfig(ApnsConfig::fromArray([
+            'payload' => [
+                'aps' => [
+                    'badge'             => 45
+                    'alert'             => $message,
+                    'sound'             => 'arrivedsound.wav',
+                    'header'            => [
+                        'apns-priority' => 10,
+                    ],
+                ],
+            ],
+        ]));
+ ```
 
 # Localization 
 
