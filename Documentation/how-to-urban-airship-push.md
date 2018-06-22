@@ -1,5 +1,5 @@
 # Sending push notifications with Urban Airship
-❗️Note, using Firebase directly is now a valid option for ios / android / web and free ([Read more](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-firebase-push.md))
+❗️Note, using Firebase directly is now a valid option for ios / android / web and free ([Read more](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-firebase-cloud-message.md))
 
 Before digging into details it's important to understand the architectural idea
 ![image](https://cloud.githubusercontent.com/assets/1279756/25579133/383ca46e-2e75-11e7-8001-21d7e7d34f5a.png)
