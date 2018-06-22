@@ -105,13 +105,11 @@ $config = ApnsConfig::fromArray([
 Payload is a way to pass more information, fx for deeplinking
 
 PHP: Example of a payload
-```json
-$data = [
+```php
+$message = $message->withData($[
     'first_key' => 'First Value',
     'second_key' => 'Second Value',
-];
-
-$message = $message->withData($data);
+]);
 ```
 
 This will let the app know where to deeplink
