@@ -2,7 +2,7 @@
 [WIP]
 
 Before digging into details it's important to understand the architectural idea
-![image](https://cloud.githubusercontent.com/assets/1279756/25579133/383ca46e-2e75-11e7-8001-21d7e7d34f5a.png)
+![image](https://user-images.githubusercontent.com/1279756/41772490-2402772a-7619-11e8-9acf-f0c17cbd0b75.png)
 
 # Diagram
 1) Through the FCM-SDK (or the native integration) the app will request a push-token at it's platform push-network. This will trigger a popup to allow push notification on most platforms. This push-token is unique for the App, device & certification (release, debug etc) and will expire after x days. Luckily the UA SDK will deal with refreshing it.
