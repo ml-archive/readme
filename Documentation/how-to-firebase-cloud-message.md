@@ -42,9 +42,11 @@ For application ABC there should be 3 FCM apps
 - ABC - Production
 
 The API credential & url can always be found at
+
 https://console.firebase.google.com/u/0/project/[app-name]/settings/serviceaccounts/adminsdk
 
 Set up android / ios / web cloud message credentials here
+
 https://console.firebase.google.com/u/0/project/[app-name]/settings/serviceaccounts/cloudmessaging
 
 Note: Credentials (json) and database URI should be setup as server variables and never be hardcoded
@@ -364,3 +366,62 @@ Now when sending a push notification you can look up the user's locale before ha
 This solution requires you to loop each user. It is possible to send arrays of namedUsers/aliases to minimize the network to UA (which is the slow part)
 
 Note: Also a creative solutions with tags can be used
+
+# Logs
+
+Unfortually there is no logs in FCM of push messages sent. Therefore we integrated this feature in NStack, where push logs are stored for 3 months
+
+It's called "Push logs" [Link](https://nstack.io/admin/ugc/push-logs)
+
+PHP example using the nodes/nstack package
+```php
+
+ $request = $messageObject->jsonSerialize();
+
+        try {
+            $response = $this->getClient()->getMessaging()->send($messageObject);
+
+            try {
+                nstack()->pushLog(
+                    'fcm',
+                    app()->environment(),
+                    $data['type'] ?? 'N/A',
+                    true,
+                    $request,
+                    $response,
+                    $message,
+                    $userId,
+                    $relation
+                );
+            } catch (\Throwable $e) {
+                bugsnag_report($e);
+            }
+        } catch (\Throwable $e) {
+            // report
+            bugsnag_report($e);
+
+            try {
+                $response = [
+                    'code'    => $e->getCode(),
+                    'message' => $e->getMessage(),
+                ];
+
+                nstack()->pushLog(
+                    'fcm',
+                    app()->environment(),
+                    $data['type'] ?? 'N/A',
+                    false,
+                    $request,
+                    $response,
+                    $message,
+                    $userId,
+                    $relation
+                );
+            } catch (\Throwable $e) {
+                bugsnag_report($e);
+            }
+        }
+
+```
+
+
