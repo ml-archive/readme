@@ -7,7 +7,7 @@ Before digging into details it's important to understand the architectural idea
 # Diagram
 1) Through the FCM-SDK (or the native integration) the app will request a push-token at it's platform push-network. This will trigger a popup to allow push notification on most platforms. This push-token is unique for the App, device & certification (release, debug etc) and will expire after x days. Luckily the UA SDK will deal with refreshing it.
 
-2) Through FCM-SDK / FCM-API the push-token will be sent to FCM and stored. FCM can now send push notifications to that device & app & certificate. Since we do not want to deal with push-tokens vs users references. It's important to register to topic as well. [Read more](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-urban-firebase-cloud-messaging.md#topics)
+2) Through FCM-SDK / FCM-API the push-token will be sent to FCM and stored. FCM can now send push notifications to that device & app & certificate. Since we do not want to deal with push-tokens vs users references. It's important to register to topic as well. [Read more](https://github.com/nodes-projects/readme/blob/master/mobile/firebase-push-guide.md#topics)
 
 3) Sending a push notification from a backend project happens via the API. It's normally triggered by
  - Admin panel as a view, send to X, Y & Z with a custom alert.
@@ -20,12 +20,15 @@ Before digging into details it's important to understand the architectural idea
 # SDKs
 
 Vapor: https://github.com/mdab121/vapor-fcm
+
 PHP: https://github.com/kreait/firebase-php
 
 # Read here for detailed description of push options for iOS, Android & Web
 
 iOS:https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#ApnsConfig
+
 Android: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#AndroidNotification
+
 Web: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#webpushconfig
 
 # Apps
