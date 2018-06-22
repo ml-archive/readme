@@ -1,5 +1,4 @@
 # Sending push notifications with Firebase cloud message (FCM)
-[WIP]
 
 Before digging into details it's important to understand the architectural idea
 ![image](https://user-images.githubusercontent.com/1279756/41772490-2402772a-7619-11e8-9acf-f0c17cbd0b75.png)
