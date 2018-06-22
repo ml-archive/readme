@@ -35,6 +35,11 @@ https://console.firebase.google.com/u/0/project/[app-name]/settings/serviceaccou
 
 Note: Credentials (json) and database URI should be setup as server variables and never be hardcoded
 
+# SDKs
+
+Vapor: https://github.com/mdab121/vapor-fcm
+PHP: https://github.com/kreait/firebase-php
+
 # Alert
 A push message has a "alert" which is the string showed in the notification center. It has a limit of 255 chars. So limit it to less. 
 
@@ -42,21 +47,61 @@ Always put the alert message in NStack / Localization
 
 Note: iOS already truncate them earlier (around 110 chars) 
 
-# Payloads / Extra
+You can either use the notification object in firebase sdk or use the APNS / Android specific objects
+
+
+PHP: Generic alert both with title & body
+```php
+$notification = Notification::create()
+    ->withTitle($title)
+    ->withBody($body); // Optional
+```
+PHP: Android specific message 
+```php
+$config = AndroidConfig::fromArray([
+    'ttl' => '3600s',
+    'priority' => 'normal',
+    'notification' => [
+        'title' => '$GOOG up 1.43% on the day',
+        'body' => '$GOOG gained 11.80 points to close at 835.67, up 1.43% on the day.',
+        'icon' => 'stock_ticker_update',
+        'color' => '#f45342',
+    ],
+]);
+
+```
+
+PHP: iOS Specifc message
+```php
+$config = ApnsConfig::fromArray([
+    'headers' => [
+        'apns-priority' => '10',
+    ],
+    'payload' => [
+        'aps' => [
+            'alert' => [
+                'title' => '$GOOG up 1.43% on the day',
+                'body' => '$GOOG gained 11.80 points to close at 835.67, up 1.43% on the day.',
+            ],
+            'badge' => 42,
+        ],
+    ],
+]);
+```
+
+
+# Payloads / Extra / data
 
 Payload is a way to pass more information, fx for deeplinking
 
-Example of a payload could be
-
+PHP: Example of a payload
 ```json
-"notification": {
- "ios": {
-   "extra": {
-    "type": "friendRequest",
-    "userId": 1
-   }
- }
-}
+$data = [
+    'first_key' => 'First Value',
+    'second_key' => 'Second Value',
+];
+
+$message = $message->withData($data);
 ```
 
 This will let the app know where to deeplink
@@ -98,11 +143,164 @@ Backend will push to those tags, but will figure out if the the current time is 
 
 Note: Users who registered to both tags will not get the notification twice. 
 
-# Advanced
+PHP: topic
+```php
+$topic = 'a-topic';
+
+$message = MessageToTopic::create($topic)
+    ->withNotification($notification) // optional
+    ->withData($data) // optional
+;
+```
+
+PHP: Topic conditions
+```php
+$condition = "'TopicA' in topics && ('TopicB' in topics || 'TopicC' in topics)";
+
+$message = ConditionalMessage::create($condition)
+    ->withNotification($notification) // optional
+    ->withData($data) // optional
+;
+```
 
 ## Sound
 
+There is 3 options for sound
 
+1) Standard device sound
+
+Don't add anything
+Or for iOS add "default"
+
+PHP iOS Standard sound
+```php
+ ->withApnsConfig(ApnsConfig::fromArray([
+            'payload' => [
+                'aps' => [
+                    'alert'             => $message,
+                    'sound'             => 'default',
+                ],
+            ],
+        ]));
+```
+ 
+2) No sound
+
+Android: Yet to figure out how this works in FCM, Please do PR
+iOS: empty string. ""
+
+PHP iOS No sound
+```php
+ ->withApnsConfig(ApnsConfig::fromArray([
+            'payload' => [
+                'aps' => [
+                    'alert'             => $message,
+                    'sound'             => '',
+                ],
+            ],
+        ]));
+```
+
+3) Custom sound
+
+Here we have to set sound for ios & android specificly
+
+The normal approach in Android is to link to the file name in /res/raw/
+
+PHP Android example
+
+```php
+->withAndroidConfig(AndroidConfig::fromArray([
+                'notification' => [
+                    'title' => $message,
+                    'sound' => $androidSound ? ('res/raw/arrivedsound.mp3') : null,
+                ],
+            ]))
+```
+
+PHP Android example
+
+```php
+ ->withApnsConfig(ApnsConfig::fromArray([
+            'payload' => [
+                'aps' => [
+                    'alert'             => $message,
+                    'sound'             => 'arrivedsound.wav',
+                ],
+            ],
+        ]));
+```
+
+## Priority
+
+This is starting to be a very important matter, notification without high prio. Can easily take minutes to be send
+
+PHP: Android high priority
+
+```php
+ ->withAndroidConfig(AndroidConfig::fromArray([
+                'priority'     => 'high',
+                'notification' => [
+                    'title' => $message,
+                ],
+            ]))
+```
+
+PHP: iOS high priority
+
+```php
+ ->withApnsConfig(ApnsConfig::fromArray([
+            'payload' => [
+                'aps' => [
+                    'alert'             => $message,
+                    'sound'             => 'arrivedsound.wav',
+                    'header'            => [
+                        'apns-priority' => 10,
+                    ],
+                ],
+            ],
+        ]));
+```
+
+No priority 10 is highest, but does not work together with content-available
+
+## Silent / Content-available
+
+Sometimes we use push to notifity the phone about a update, but we do not want it to show in the notification center.
+eg booking was updated, with updates in payload or please pull newest booking
+
+PHP iOS example
+```php
+ $apns = [
+            'payload' => [
+                'aps' => [
+                    'alert'             => $message,
+                    'sound'             => $iosSound,
+                    'content-available' => $silent ? 1 : 0,
+                    'header'            => [
+                        'apns-priority' => $silent ? 5 : 10,
+                    ],
+                ],
+            ],
+        ];
+
+        if($silent) {
+            unset($apns['payload']['aps']['alert']);
+            unset($apns['payload']['aps']['sound']);
+        }
+        
+ ->withApnsConfig($apns);
+```
+
+PHP Android example, there is no real featuer for this. But android can read payload and decide not to build notification
+```php
+$message = $message->withData([
+    'silent' => 'true',
+]);
+```
+
+The reason of this code, is that "alert" & "sound" is not allowed when sending silent pushes. It should not even be in object, else it will be ignored as silent
+Same goes for priorty, 5 is highest for silent
 
 ## Badge count
 This is originally an iOS feature
