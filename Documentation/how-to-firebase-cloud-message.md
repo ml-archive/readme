@@ -1,4 +1,5 @@
 # Sending push notifications with Firebase cloud message (FCM)
+[WIP]
 
 Before digging into details it's important to understand the architectural idea
 ![image](https://cloud.githubusercontent.com/assets/1279756/25579133/383ca46e-2e75-11e7-8001-21d7e7d34f5a.png)
@@ -20,11 +21,11 @@ Before digging into details it's important to understand the architectural idea
 
 In FCM you create applications for each application & environment.
 
-For application ABC there should be 3 UA apps
+For application ABC there should be 3 FCM apps
 
-- ABC - Development (development)
-- ABC - Staging (production)
-- ABC - Production (production)
+- ABC - Development
+- ABC - Staging
+- ABC - Production
 
 The API credential & url can always be found at
 https://console.firebase.google.com/u/0/project/[app-name]/settings/serviceaccounts/adminsdk
