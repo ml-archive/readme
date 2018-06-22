@@ -22,6 +22,7 @@ Feel free to get in touch or to submit a PR to any of our repos.
   - [How to support emojis (utf8mb4)](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-support-emojis.md)
 - **Hosting**
   - [How to setup environment variables](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-setup-environment-variables.md)
+  - [How to deploy and host Vapor apps](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-deploy-and-host.md)
 - **Third party integrations**
   - [Push notifications with Urban Airship](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-urban-airship-push.md)
   - [How to report errors to Bugsnag](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-report-to-bugsnag.md)
