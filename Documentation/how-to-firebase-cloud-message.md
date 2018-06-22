@@ -57,6 +57,8 @@ Always put the alert message in NStack / Localization
 
 Note: iOS already truncate them earlier (around 110 chars) 
 
+__We highly recommend using both title & body, but body is option__
+
 You can either use the notification object in firebase sdk or use the APNS / Android specific objects
 
 
