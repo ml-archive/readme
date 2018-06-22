@@ -17,6 +17,17 @@ Before digging into details it's important to understand the architectural idea
 
 5) The push-network will queue the request from FCM and sent the push notification through a socket connection to the device. If the device is not online, it will save it for x hours (depending on push-network)
 
+# SDKs
+
+Vapor: https://github.com/mdab121/vapor-fcm
+PHP: https://github.com/kreait/firebase-php
+
+# Read here for detailed description of push options for iOS, Android & Web
+
+iOS:https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#ApnsConfig
+Android: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#AndroidNotification
+Web: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#webpushconfig
+
 # Apps
 
 In FCM you create applications for each application & environment.
@@ -34,11 +45,6 @@ Set up android / ios / web cloud message credentials here
 https://console.firebase.google.com/u/0/project/[app-name]/settings/serviceaccounts/cloudmessaging
 
 Note: Credentials (json) and database URI should be setup as server variables and never be hardcoded
-
-# SDKs
-
-Vapor: https://github.com/mdab121/vapor-fcm
-PHP: https://github.com/kreait/firebase-php
 
 # Alert
 A push message has a "alert" which is the string showed in the notification center. It has a limit of 255 chars. So limit it to less. 
