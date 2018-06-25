@@ -40,6 +40,8 @@ For application ABC there should be 3 FCM projects
 - ABC - Staging
 - ABC - Production
 
+Within each project you can set up the apps for iOS, Android (and Web).
+
 The API credential & url can always be found at
 
 https://console.firebase.google.com/u/0/project/[app-name]/settings/serviceaccounts/adminsdk
