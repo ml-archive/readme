@@ -32,9 +32,9 @@ Web: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#we
 
 # Apps
 
-In FCM you create applications for each application & environment.
+In FCM you create projects for each application & environment.
 
-For application ABC there should be 3 FCM apps
+For application ABC there should be 3 FCM projects
 
 - ABC - Development
 - ABC - Staging
