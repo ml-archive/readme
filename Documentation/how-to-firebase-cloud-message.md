@@ -77,13 +77,21 @@ $config = AndroidConfig::fromArray([
     'priority' => 'normal',
     'notification' => [
         'title' => '$GOOG up 1.43% on the day',
+        'tag' => '$GOOG',
         'body' => '$GOOG gained 11.80 points to close at 835.67, up 1.43% on the day.',
-        'icon' => 'stock_ticker_update',
-        'color' => '#f45342',
+        'icon' => 'ic_stock_ticker',
+        'color' => '#f45342'
     ],
 ]);
-
 ```
+
+*Notification keys and value options*:
+`tag`: Identifier used to replace existing notifications in the notification drawer. If not specified, each request creates a new notification. If specified and a notification with the same tag is already being shown, the new notification replaces the existing one in the notification drawer.
+
+`color`: The notification's icon color, expressed in #rrggbb format.
+
+`icon`: Unless specified, let the Android app deal with this. Kind of similar to sound, but with notification icons instead.
+
 
 PHP: iOS Specifc message
 ```php
@@ -128,28 +136,28 @@ We always register userId as a topic `user_[ID]`eg `user_1`
 
 Topics can be used very smart, and should avoid every situation of having to store push settings in the DB. 
 
-Example 1)
+## Example 1)
 
 Feature: Push on breaking news which is optional for users (is a setting)
 
-The app will register to a tag "breakingNews" if the push setting is on.
+The app will register to a tag `breakingNews` if the push setting is on.
 It's important to code this as a way where local storage is master
 
-The backend will now just push to the tag "breakingNews"
+The backend will now just push to the tag `breakingNews`
 
-Example 2)
+## Example 2)
 
 Feature: Recieving push notifications about athlete with id: 12345, after favoriting him/her
 
-The app will register to tag "athelete_12345"
+The app will register to tag `athelete_12345`
 
-The backend will now just push to the tag "athlete\_[ID]" instead of looping users which have favorited it (maybe the state is even local)
+The backend will now just push to the tag `athlete\_[ID]` instead of looping users which have favorited it (maybe the state is even local)
 
-Example 3)
+## Example 3)
 
 The app have options to only receive news push notification during race or always 
 
-The app will register to tag "newsAlways" or "newsDuringRace" or both
+The app will register to tag `newsAlways` or `newsDuringRace` or both
 
 Backend will push to those tags, but will figure out if the the current time is durring race and add that tag also.
 
@@ -179,10 +187,7 @@ $message = ConditionalMessage::create($condition)
 
 There is 3 options for sound
 
-1) Standard device sound
-
-Don't add anything
-Or for iOS add "default"
+### Standard device sound
 
 PHP iOS Standard sound
 ```php
@@ -195,10 +200,23 @@ PHP iOS Standard sound
             ],
         ]));
 ```
- 
-2) No sound
 
-Android: Yet to figure out how this works in FCM, Please do PR
+PHP Android Standard sound
+```php
+$config = AndroidConfig::fromArray([
+    'ttl' => '3600s',
+    'priority' => 'normal',
+    'notification' => [
+        'title' => '$GOOG up 1.43% on the day',
+        'body' => '$GOOG gained 11.80 points to close at 835.67, up 1.43% on the day.',
+        'sound' => 'default'
+    ],
+]);
+```
+ 
+### No sound
+
+Android: The documentation is pretty lackluster on this. For Android 8.0+ notification channel's will probably override this anyway.
 iOS: empty string. ""
 
 PHP iOS No sound
@@ -213,11 +231,11 @@ PHP iOS No sound
         ]));
 ```
 
-3) Custom sound
+### Custom sound
 
 Here we have to set sound for ios & android specificly
 
-The normal approach in Android is to link to the file name in /res/raw/
+`sound`: The sound to play when the device receives the notification. Supports "default" or the filename of a sound resource bundled in the app i.e. `stocksound.mp3`. Android: Sound files must reside in /res/raw/.
 
 PHP Android example
 
@@ -225,7 +243,7 @@ PHP Android example
 ->withAndroidConfig(AndroidConfig::fromArray([
                 'notification' => [
                     'title' => $message,
-                    'sound' => $androidSound ? ('res/raw/arrivedsound.mp3') : null,
+                    'sound' => $androidSound ? ('arrivedsound.mp3') : null,
                 ],
             ]))
 ```
@@ -247,7 +265,13 @@ PHP Android example
 
 This is starting to be a very important matter, notification without high prio. Can easily take minutes to be send
 
-PHP: Android high priority
+*PHP: Android high priority*
+
+`priority`: Message priority. Can take "normal" and "high" values. 
+
+*Normal priority messages* are delivered immediately when the app is in the foreground. When the device is in Doze or the app is in app standby, delivery may be delayed to conserve battery. For less time-sensitive messages, such as notifications of new email, keeping your UI in sync, or syncing app data in the background, choose normal delivery priority. 
+
+FCM attempts to deliver *high priority messages* immediately, allowing the FCM service to wake a sleeping device when necessary and to run some limited processing (including very limited network access). High priority messages generally should result in user interaction with your app. If FCM detects a pattern in which they don't, your messages may be de-prioritized.
 
 ```php
  ->withAndroidConfig(AndroidConfig::fromArray([
@@ -258,7 +282,7 @@ PHP: Android high priority
             ]))
 ```
 
-PHP: iOS high priority
+*PHP: iOS high priority*
 
 ```php
  ->withApnsConfig(ApnsConfig::fromArray([
@@ -281,7 +305,7 @@ No priority 10 is highest, but does not work together with content-available
 Sometimes we use push to notifity the phone about a update, but we do not want it to show in the notification center.
 eg booking was updated, with updates in payload or please pull newest booking
 
-PHP iOS example
+### PHP iOS example
 ```php
  $apns = [
             'payload' => [
@@ -303,16 +327,18 @@ PHP iOS example
         
  ->withApnsConfig($apns);
 ```
+The reason of this code, is that "alert" & "sound" is not allowed when sending silent pushes. It should not even be in object, else it will be ignored as silent
+Same goes for priorty, 5 is highest for silent
 
-PHP Android example, there is no real featuer for this. But android can read payload and decide not to build notification
+
+### PHP Android example
+To send silent push notifications send a payload with only `data` object set. The Android app will then receive data payload in `onMessageReceived`.
 ```php
 $message = $message->withData([
-    'silent' => 'true',
+    'someKey' => 'someValue',
 ]);
 ```
 
-The reason of this code, is that "alert" & "sound" is not allowed when sending silent pushes. It should not even be in object, else it will be ignored as silent
-Same goes for priorty, 5 is highest for silent
 
 ## Badge count
 This is originally an iOS feature
