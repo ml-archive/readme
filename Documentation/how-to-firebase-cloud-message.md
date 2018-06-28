@@ -4,7 +4,7 @@ Before digging into details it's important to understand the architectural idea
 ![image](https://user-images.githubusercontent.com/1279756/41772490-2402772a-7619-11e8-9acf-f0c17cbd0b75.png)
 
 # Diagram
-1) Through the FCM-SDK (or the native integration) the app will request a push-token at it's platform push-network. This will trigger a popup to allow push notification on most platforms. This push-token is unique for the App, device & certification (release, debug etc) and will expire after x days. Luckily the UA SDK will deal with refreshing it.
+1) Through the FCM-SDK (or the native integration) the app will request a push-token at its platform push-network. This will trigger a popup to allow push notification on most platforms. This push-token is unique for the App, device & certification (release, debug etc) and will expire after x days. Luckily the UA SDK will deal with refreshing it.
 
 2) Through FCM-SDK / FCM-API the push-token will be sent to FCM and stored. FCM can now send push notifications to that device & app & certificate. Since we do not want to deal with push-tokens vs users references. It's important to register to topic as well. [Read more](https://github.com/nodes-projects/readme/blob/master/mobile/firebase-push-guide.md#topics)
 
@@ -18,7 +18,9 @@ Before digging into details it's important to understand the architectural idea
 
 # SDKs
 
-Vapor: https://github.com/mdab121/vapor-fcm
+Vapor: https://github.com/mdab121/vapor-fcm :warning:
+
+**Until they have merged my PR, please use https://github.com/cweinberger/vapor-fcm/releases/tag/2.1.1. Otherwise your will always receive an unsuccessful Response from the framework (even though the notification was sent successfully).**
 
 PHP: https://github.com/kreait/firebase-php
 
@@ -30,9 +32,9 @@ Android: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.message
 
 Web: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#webpushconfig
 
-# Apps
+# Setting up projects in Firebase
 
-In FCM you create projects for each application & environment.
+In FCM Console you create projects for each application & environment.
 
 For application ABC there should be 3 FCM projects
 
@@ -138,30 +140,30 @@ Topics can be used very smart, and should avoid every situation of having to sto
 
 ## Example 1)
 
-Feature: Push on breaking news which is optional for users (is a setting)
+Feature: Push on breaking news which is optional for users (e.g. configurable in settings)
 
-The app will register to a tag `breakingNews` if the push setting is on.
-It's important to code this as a way where local storage is master
+The app has to subscribe to a topic `breakingNews` if the user turns on that setting (i.e. through a toggle).
+If the user disables the setting, the app has to unsubscribe from `breakingNews`.
 
-The backend will now just push to the tag `breakingNews`
+Whenever breaking news are to be shared, the backend will send a FCM (push) message to the topic `breakingNews`.
 
 ## Example 2)
 
-Feature: Recieving push notifications about athlete with id: 12345, after favoriting him/her
+Feature: Recieving push notifications about athlete with id: 12345, after favoriting them
 
-The app will register to tag `athelete_12345`
+The app will subscribe to the topic `athelete_12345`
 
-The backend will now just push to the tag `athlete\_[ID]` instead of looping users which have favorited it (maybe the state is even local)
+The backend will now just push to the topic `athlete\_[ID]` instead of looping users which have favorited it (this way, it might be even not necessary to store the relation/state (user favorited athlete) on the backend)
 
 ## Example 3)
 
-The app have options to only receive news push notification during race or always 
+The app has options to only receive news push notification during race or always 
 
-The app will register to tag `newsAlways` or `newsDuringRace` or both
+The app will subscribe to the topic `newsAlways` or `newsDuringRace` or both
 
-Backend will push to those tags, but will figure out if the the current time is durring race and add that tag also.
+The Backend will push to those topics, but will figure out if the the current time is during race and add that topic as well.
 
-Note: Users who registered to both tags will not get the notification twice. 
+Note: Users who subscribed to both topics will not get the notification twice.
 
 PHP: topic
 ```php
@@ -388,9 +390,9 @@ PHP: iOS
 First you need to setup a system to keep track of language for each user. 
 
 Setup a field on the user model "locale" and store the Accept-Language header here.
-Now when sending a push notification you can look up the user's locale before hand, and thereby translate it.
+Now when sending a push notification you can look up the user's locale beforehand, and thereby translate it.
 
-This solution requires you to loop each user. It is possible to send arrays of namedUsers/aliases to minimize the network to UA (which is the slow part)
+This solution requires you to loop through each user. It is possible to send arrays of namedUsers/aliases to minimize the network to Firebase (which is the slow part)
 
 Note: Also a creative solutions with tags can be used
 
