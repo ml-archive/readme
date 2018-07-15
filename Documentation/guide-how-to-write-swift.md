@@ -54,7 +54,7 @@ Descriptive and consistent naming makes software easier to read and understand. 
 
 Tip: Setup Xcode to help you follow these guidelines.
 
-To achieve a column width of max 80 consider how you call and declare functions, how you use `guard` etc. For example:
+To achieve a column width of max 100 consider how you call and declare functions, how you use `guard` etc. For example:
 
 ```swift
 guard let a = test, let b = test2 else {
@@ -69,6 +69,25 @@ guard
     let a = test,
     let b = test2
 else {
+
+}
+```
+
+Similarly a function like:
+
+```swift
+func products(for category: Category, on worker: Worker) throws -> Future<[Product]> {
+
+}
+```
+
+Could be written:
+
+```swift
+func products(
+    for category: Category,
+    on worker: Worker
+) throws -> Future<[Product]> {
 
 }
 ```
