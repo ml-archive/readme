@@ -44,6 +44,7 @@ Descriptive and consistent naming makes software easier to read and understand. 
 - Classes, structs, and type names should be capitalized. 
 - The name of a variable should be enough to tell another programmer what that variable does. Don't use variable names such as `number`, `a`, `b`, `x`, `button`, `label`, etc. 
 - To adhere to the Swift 3 syntax, all enum cases will be lowerCamelCase and not UpperCamelCase as before.
+- An [initialism](https://en.wiktionary.org/wiki/initialism) should be kept uppercase consistently (e.g.: `class AvatarURLTag`, `var avatarURL`.) unless the name starts with it, then we keep it lowercase (e.g. `var url: URL`)
 
 ## Spacing
 
