@@ -12,6 +12,7 @@ jobs:
           name: Install dependencies
           # A specific version of MySQL (5.7.22) is being installed due to MySQL 8 issues with Vapor 2
           command: |
+            export HOMEBREW_NO_AUTO_UPDATE=1
             brew tap vapor/homebrew-tap
             brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/a340bfac3b7abff408a6b6fe6fdc39a38ab94871/Formula/mysql.rb
             brew install cmysql
