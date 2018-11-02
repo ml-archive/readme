@@ -2,7 +2,7 @@ included:
   - Sources
 function_body_length:
   warning: 60
-identifier_name:
+variable_name:
   min_length:
     warning: 2
 line_length: 100

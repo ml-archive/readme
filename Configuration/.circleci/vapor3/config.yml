@@ -2,7 +2,7 @@ version: 2
 jobs:
   MacOS:
     macos:
-      xcode: "9.4.0"
+      xcode: "10.0.0"
     steps:
       - checkout
       - restore_cache:
@@ -10,14 +10,13 @@ jobs:
             - v1-spm-deps-{{ checksum "Package.resolved" }}
       - run:
           name: Install dependencies
-          # A specific version of MySQL (5.7.22) is being installed due to MySQL 8 issues with Vapor 2
           command: |
+            export HOMEBREW_NO_AUTO_UPDATE=1
             brew tap vapor/homebrew-tap
-            brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/a340bfac3b7abff408a6b6fe6fdc39a38ab94871/Formula/mysql.rb
             brew install cmysql
             brew install ctls
+            brew install libressl
             brew install cstack
-            brew switch mysql 5.7.22
       - run:
           name: Build and Run Tests
           no_output_timeout: 1800
@@ -29,7 +28,7 @@ jobs:
             - .build
   Linux:
     docker:
-      - image: nodesvapor/vapor-ci:swift-4.1
+      - image: nodesvapor/vapor-ci:swift-4.2
     steps:
       - checkout
       - restore_cache:
