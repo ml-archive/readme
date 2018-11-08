@@ -123,6 +123,18 @@ Classes have [reference semantics](https://developer.apple.com/library/mac/docu
 
 Prefer compact code and let the compiler infer the type for constants or variables of single instances. Type inference is also appropriate for small (non-empty) arrays and dictionaries. When required, specify the specific type.
 
+In situations where type inference is not possible and there's an option to pass in the type in a function call, having the type on the constant/variable declaration is preferred.
+
+**Preferred**:
+```swift
+let foo: MyType = try someFunction()
+```
+
+**Not preferred:**
+```swift
+let foo = try someFunction(MyType.self)
+```
+
 ## Access Control
 
 Access modifiers are preferable as they communicate that the developer made an active decision on how a declaration could be accessed.
