@@ -41,7 +41,7 @@ Feel free to get in touch or to submit a PR to any of our repos.
 - [CircleCI](https://github.com/nodes-vapor/readme/tree/master/Configuration/.circleci) (please note the folder structure)
 - [Travis](https://github.com/nodes-vapor/readme/blob/master/Configuration/.travis.yml)
 - [Codecov](https://github.com/nodes-vapor/readme/blob/master/Configuration/.codecov.yml)
-- [Swiftlint](https://github.com/nodes-vapor/readme/blob/master/Configuration/.swiftlint.yml)
+- [SwiftLint](https://github.com/nodes-vapor/readme/blob/master/Configuration/.swiftlint.yml)
 - [Codebeat](https://github.com/nodes-vapor/readme/blob/master/Configuration/.codebeatignore)
 
 ## Blogging
