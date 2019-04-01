@@ -1,4 +1,4 @@
-# How to create Postman collections
+# How to create Postman workspaces & collections
 
 We use [Postman](https://www.getpostman.com/) heavily at Nodes for tasks like:
 
@@ -10,11 +10,21 @@ We use [Postman](https://www.getpostman.com/) heavily at Nodes for tasks like:
 
 To align how we work with Postman, this document was created.
 
+## How to setup a new workspace
+
+Each project at Nodes that contains an API should have a workspace. A workspace can hold internal API collections, external API collections and any test collections. The workspace should have the same name as the project on GitHub but without the framework suffix. See [this document](https://github.com/nodes-projects/readme/blob/master/general/new-repository.md) for more info on our repo naming convention (internal link).
+
+Remember when creating a workspace that it's created on the Nodes Team instead of your personal account.
+
+### Structure of a workspace
+
+Use collections within the workspace to group related endpoints. Normally we would have one collection for the API that the mobile applications will consume and then a number of extra collections based on the specifics of the project. These could be collections for external API's that the backend use or test collections.
+
 ## How to setup a new collection
 
 ### Creating a collection
 
-Each project at Nodes that contains an API should have a corresponding Postman collection. A collection can be considered as a project or simply a folder in Postman. The collection should have the same name as  the project on GitHub but without the framework suffix. See [this document](https://github.com/nodes-projects/readme/blob/master/general/new-repository.md) for more info on our repo naming convention (internal link).
+Collections are groups of endpoints and using them is a great way to keep a structure within your API project. Remember to create the relevant collections within the correct project-specific workspace (instead of the fallback "Team Workspace").
 
 ### Sharing a collection
 
