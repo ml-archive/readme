@@ -10,7 +10,7 @@ We use [Postman](https://www.getpostman.com/) heavily at Nodes for tasks like:
 
 To align how we work with Postman, this document was created.
 
-## How to setup a new workspace
+## How to set up a new workspace
 
 Each project at Nodes that contains an API should have a workspace. A workspace can hold internal API collections, external API collections and any test collections. The workspace should have the same name as the project on GitHub but without the framework suffix. See [this document](https://github.com/nodes-projects/readme/blob/master/general/new-repository.md) for more info on our repo naming convention (internal link).
 
