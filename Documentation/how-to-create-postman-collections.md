@@ -119,4 +119,4 @@ Postman documentation is covered in its own file [here](https://github.com/nodes
 
 ## How to create API acceptance tests
 
-Postman API acceptance testing is convered in its own file [here](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-tests.md).
+Postman API acceptance testing is covered in its own file [here](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-create-postman-tests.md).
