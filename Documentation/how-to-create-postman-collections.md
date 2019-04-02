@@ -18,7 +18,7 @@ Remember when creating a workspace that it's created on the Nodes Team instead o
 
 ### Structure of a workspace
 
-Use collections within the workspace to group related endpoints. Normally we would have one collection for the API that the mobile applications will consume and then a number of extra collections based on the specifics of the project. These could be collections for external API's that the backend use or test collections.
+Use collections within the workspace to group related endpoints. Normally we would have one collection for the API that the mobile applications will consume and then a number of extra collections based on the specifics of the project. These could be collections for external API's that the backend uses or test collections.
 
 ## How to setup a new collection
 
