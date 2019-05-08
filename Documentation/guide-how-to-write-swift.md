@@ -137,7 +137,7 @@ let foo = try someFunction(MyType.self)
 
 ## Access Control
 
-Access modifiers are preferable as they communicate that the developer made an active decision on how a declaration could be accessed.
+It is preferred to limit scope as much as possible by using access modifiers. That said, redunant access modifiers should be avoided.
 
 ## Generics
 
