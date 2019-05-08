@@ -137,7 +137,7 @@ let foo = try someFunction(MyType.self)
 
 ## Access Control
 
-It is preferred to limit scope as much as possible by using access modifiers. That said, redunant access modifiers should be avoided.
+It is preferred to limit scope as much as possible by using access modifiers. That said, redundant access modifiers should be avoided.
 
 ## Generics
 
