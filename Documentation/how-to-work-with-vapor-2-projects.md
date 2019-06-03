@@ -8,7 +8,7 @@ MySQL's current version is 8 but for Vapor 2 projects you need to have mysql 5.7
 brew install mysql@5.7
 ```
 
-If you have mysql 8 installed as well you will get CMySQL related build errors. To solve this you will first have to tell homebrew to use 5.7 by default.
+If you have MySQL 8 installed as well you will get CMySQL related build errors. To solve this you will first have to tell Homebrew to use 5.7 by default:
 
 ```
 brew link mysql@5.7 --force
