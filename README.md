@@ -34,6 +34,7 @@ Feel free to get in touch or to submit a PR to any of our repos.
   - [Tips and tricks](https://github.com/nodes-vapor/readme/blob/master/Documentation/tips-and-tricks.md)
   - [How to use a proxy](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-use-a-proxy.md)
   - [How to upload files](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-upload-files.md)
+  - [How to work with Vapor 2 projects](https://github.com/nodes-vapor/readme/blob/master/Documentation/how-to-work-with-vapor-2-projects.md)
 
 ## Configuration
 
