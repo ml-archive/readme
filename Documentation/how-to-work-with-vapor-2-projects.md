@@ -25,10 +25,6 @@ ln -s mysql@5.7 mysql
 After this clean and rebuild your project.
 
 ## Xcode
-Vapor 2 projects cannot run in the newest version of Xcode. You should therefor install [Xcode 10.1 or a previous version](https://developer.apple.com/download/more/). No need to add any addition toolchains, just open your project in the newly install Xcode.  
+Vapor 2 projects cannot be built in Xcode 10.2 and later. You should therefore install [Xcode 10.1](https://developer.apple.com/download/more/) under `/Application/Xcode10.1.app` (or to a name of your choosing). No need to add any addition toolchains, just open your project in the newly installed Xcode.
 
-Once you have the older version of Xcode installed, you should set the local Swift version to 4.1.2. The easiest way to do this is via [Swiftenv](https://github.com/kylef/swiftenv). Just run the following command in your terminal:
-
-```
-swiftenv local 4.1.2
-```
+Once you have the older version of Xcode installed, you should set the local Swift version to 4.1.2. This can be done in Xcode through Settings -> Locations -> Command Line tools (Choose Xcode 10.1) or in the command line using `xcode-select -s /Applications/Xcode10.1.app` (or adjusted to the location where you installed Xcode 10.1).
