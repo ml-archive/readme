@@ -102,9 +102,9 @@ Below is a list of our most used headers. You might end up working on a project 
 | Header key        | Description                              |
 | ----------------- | ---------------------------------------- |
 | `Accept`          | This header is **required by all endpoints**. It’s used to identify the request as our own and for versioning our endpoints. **Default value**: `application/vnd.nodes.v1+json`. |
-| `Accept-Language` | The (ISO 639)[http://www.loc.gov/standards/iso639-2/php/code_list.php] code of language translations should be returned in. |
+| `Accept-Language` | The [ISO 639](http://www.loc.gov/standards/iso639-2/php/code_list.php) code of language translations should be returned in. |
 | `Authorization`   | The authorized user’s token. This is used to gain access to protected endpoint. |
-| `N-Meta`          | Meta data about the consumer, such as platform, environment and more, see the (N-Meta package)[https://github.com/nodes-vapor/n-meta] |
+| `N-Meta`          | Meta data about the consumer, such as platform, environment and more, see the [N-Meta package](https://github.com/nodes-vapor/n-meta) |
 | `Facebook-Token`  | Facebook Graph token. |
 | `Instagram-Token` | Instagram OAuth token. |
 | `Twitter-Token`   | Twitter OAuth token. |
@@ -151,7 +151,7 @@ Fear not! No table with a list of available options comes without a section with
 
 This is one of the tricky parts. Depending on what type of API you’re doing, pagination is implemented in different ways.
 
-If you're making an API to be used on the web, simple pagination using "pages" would work just fine. This is supported by our (Paginator package)[https://github.com/nodes-vapor/paginator] and should work out of the box.
+If you're making an API to be used on the web, simple pagination using "pages" would work just fine. This is supported by our [Paginator package](https://github.com/nodes-vapor/paginator) and should work out of the box.
 
 But if you’re making an API for the mobile team(s) then you need to do it in a bit more complex way. Because devices usually have a "load more" feature, we can’t use the "pages" approach, since we could risk getting duplicates or even miss new entries. Therefore we return the collection in "batches" instead of pages.
 
@@ -225,7 +225,7 @@ One of the most important things in an API is how it returns response codes. Eac
 
 The response codes often have very precise definition and are easily misunderstood when just looking at their names. For example, `Bad Request` refers to malformed requests and not, as often interpreted, when there is something semantically wrong with the reuquest. Often `Unprocessable entity` is a better choice in those cases.
 Another one that is often used incorrectly is `Precondition Failed`. The precondition this status code refers to are those defined in headers like `If-Match` and `If-Modified-Since`. Again, `Unprocessable entity` is usually the more appropriate choice if the request somehow isn't valid in the current state of the server.
-When in doubt, refer to (this overview)[https://httpstatuses.com] and see if the description of an status code matches your situation.
+When in doubt, refer to [this overview](https://httpstatuses.com) and see if the description of an status code matches your situation.
 
 ## Response
 
