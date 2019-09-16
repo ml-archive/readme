@@ -43,6 +43,7 @@ Have a look at this [template](https://github.com/nodes-projects/readme/blob/mas
 
 ```
 [Swift version] [Vapor version]
+
 `master`: [Circle CI] [Codebeat]
 `develop`: [Circle CI] [Codebeat]
 ```
@@ -51,7 +52,7 @@ See some of the other projects on the nodes-projects organization for comparison
 
 #### Branches
 
-After the repository has been created and Circle CI (see [Circle CI](#circle-ci) section) has been setup, go to the "Settings" part of the repository and hit "Branches". In here you want to make sure that `develop` is set as the default branch and that `master` and `develop` are added as protected branches. For each protected branch make sure that the following options are checked:
+After the repository has been created and Circle CI (see [Circle CI](#circle-ci) section) has been set up, go to the "Settings" part of the repository on Github and hit "Branches". In here you want to make sure that `develop` is set as the default branch and that `master` and `develop` are added as protected branches. For each protected branch make sure that the following options are checked:
 
 - [x] "Protect this branch"
 - [x] "Require status checks to pass before merging"
@@ -69,9 +70,11 @@ Last step is to generate a token for the Circle CI badge for the readme. Select 
 [![Circle CI](https://circleci.com/gh/nodes-projects/my-project/tree/master.svg?style=shield&circle-token=my-token)](https://circleci.com/gh/nodes-projects/my-project)
 ```
 
+> Note that in order to create the badge for the develop environment you first have to trigger a Circle CI build on develop by pushing a commit.
+
 ### Codebeat
 
-We use Codebeat for static code analysis. Although the reports and the GPA score should be taken with a grain of salt, the reports are still useful for getting recommendations for areas to improve in the codebase. Each repository and branch needs to be setup manually. After logging into Codebeat (please reach out to a fellow developer for credentials) you can add the `master` and `develop` branches for the repository. When Codebeat is done analyzing, the badges for the readme will be available under "Settings" within the different reports.
+We use Codebeat for static code analysis. Although the reports and the GPA score should be taken with a grain of salt, the reports are still useful for getting recommendations for areas to improve in the codebase. Each repository and branch needs to be set up manually. After logging into Codebeat (please reach out to a fellow developer for credentials) you can add the `master` and `develop` branches for the repository. When Codebeat is done analyzing, the badges for the readme will be available under "Settings" within the different reports.
 
 ### Deployment
 
@@ -97,5 +100,4 @@ Test: http://codepen.io/dennishn/pen/BLbYyJ
 
 ### Storage
 
-If you need to store files, e.g. images, the [Storage](
-https://github.com/nodes-vapor/storage) package is here to help you.
+If you need to store files, e.g. images, the [Storage](https://github.com/nodes-vapor/storage) package is here to help you.
