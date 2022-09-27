@@ -1,5 +1,6 @@
 # !!! DEPRECATED !!!
-## These guidelines are no longer in use
+These guidelines are no longer in use
+Please use [The API Manifesto](https://github.com/monstar-lab-oss/API-manifesto) instead
 
 # How to write APIs
 
