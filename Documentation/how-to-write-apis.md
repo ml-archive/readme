@@ -1,3 +1,6 @@
+# !!! DEPRECATED !!!
+## These guidelines are no longer in use
+
 # How to write APIs
 
 ## Table of Contents
