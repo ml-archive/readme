@@ -24,6 +24,38 @@ ln -s mysql@5.7 mysql
 
 After this clean and rebuild your project.
 
+## OpenSSL
+
+Homebrew has removed OpenSSL 1.0 which Vapor 2 depends on. In order to install version 1.0 in addition to 1.1 you'll need to get an old formula for it. To get version 1.0.2t use:
+
+```
+curl -X GET https://raw.githubusercontent.com/Homebrew/homebrew-core/13a4fb05a3147d429416425c00142880c86e6f4e/Formula/openssl.rb > openssl.rb
+```
+
+> Note: we have to download the file with the formula because Homebrew disabled support for installing from a Github link directly.
+
+Then install it by doing:
+
+```
+brew install openssl.rb -f
+```
+
+Confirm that openssl is now linked correctly by verifying that `openssl` below points to the 1.0 version.
+
+```
+> ls -l /usr/local/opt/openssl*
+lrwxr-xr-x  1 siemen  admin  24 Oct 19 11:44 /usr/local/opt/openssl -> ../Cellar/openssl/1.0.2t
+lrwxr-xr-x  1 siemen  admin  28 May 25 08:44 /usr/local/opt/openssl@1.1 -> ../Cellar/openssl@1.1/1.1.1g
+```
+
+If this is not the case you can override it by doing:
+
+```
+cd /usr/local/opt
+rm openssl
+ln -s ../Cellar/openssl/1.0.2t openssl
+```
+
 ## Xcode
 Vapor 2 projects cannot be built in Xcode 10.2 and later. You should therefore install [Xcode 10.1](https://developer.apple.com/download/more/) under `/Application/Xcode10.1.app` (or to a name of your choosing). No need to add any addition toolchains, just open your project in the newly installed Xcode.
 
